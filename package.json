@@ -84,6 +84,7 @@
     "ionicons": "3.0.0",
     "jszip": "^3.1.4",
     "moment": "^2.19.1",
+    "pm2": "^3.2.8",
     "promise.prototype.finally": "^3.0.1",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",

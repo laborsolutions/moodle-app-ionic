@@ -241,8 +241,58 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
      *
      * @return {Promise<any[]>} Promise resolved when done.
      */
+
+    public onvertSummarySpanToLi(courses)
+    {    
+      
+           var mycourse=[];
+           courses.forEach((course) => {
+               if(course['summary']){
+                  course['summary']=this.replaceDefineTags(course['summary']);
+                 }
+             mycourse.push(course);
+                });
+           return mycourse;
+    }
+
+    public replaceDefineTags(stringg)
+    {
+       stringg= stringg.replace(/<span>/g, "");
+       stringg= stringg.replace(/<\/span>/g, "");
+       stringg= stringg.replace(/<\/?a[^>]*>/g, "");
+       stringg= stringg.replace(/<p>/g, "");
+       stringg= stringg.replace(/<\/p>/g, "");
+   
+     return  this.makeUlLi(stringg);
+      
+    }
+
+     makeUlLi(stringg) {
+      var stringgs= stringg.split(',');
+      if(stringgs.length > 1 )
+      {
+
+          var li='<ul>';
+          stringgs.forEach((string) => {
+                  li += '<li>';
+                  li += string;
+                  li += '</li>';
+          });
+            li += '</ul>';
+            console.log(li);
+            return li;
+
+      }else
+      {
+        return stringg;  
+      }
+    }
+
+
     protected fetchUserCourses(): Promise<any[]> {
         return this.coursesProvider.getUserCourses().then((courses) => {
+            //alert(JSON.stringify(courses));
+            courses = this.onvertSummarySpanToLi(courses);
             const promises = [],
                 courseIds = courses.map((course) => {
                 return course.id;

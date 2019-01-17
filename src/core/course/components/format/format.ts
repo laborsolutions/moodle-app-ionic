@@ -97,7 +97,7 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
                 // Get the affected section.
                 let section;
                 for (let i = 0; i < this.sections.length; i++) {
-                    const s = this.sections[i];
+                    const s = this.removeHrefLink(this.sections[i]);
                     if (s.id === data.sectionId) {
                         section = s;
                         break;
@@ -110,10 +110,10 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
                 }
 
                 // Recalculate the status.
-                this.courseHelper.calculateSectionStatus(section, this.course.id, false).then(() => {
+                this.courseHelper.calculateSectionStatus(this.removeHrefLink(section), this.course.id, false).then(() => {
                     if (section.isDownloading && !prefetchDelegate.isBeingDownloaded(downloadId)) {
                         // All the modules are now downloading, set a download all promise.
-                        this.prefetch(section, false);
+                        this.prefetch(this.removeHrefLink(section), false);
                     }
                 });
             }
@@ -124,7 +124,7 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
      * Component being initialized.
      */
     ngOnInit(): void {
-        this.displaySectionSelector = this.cfDelegate.displaySectionSelector(this.course);
+        this.displaySectionSelector = this.cfDelegate.displaySectionSelector(this.removeHrefLink(this.course));
     }
 
     /**
@@ -139,12 +139,13 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
         }
 
         if (changes.sections && this.sections) {
+
             if (!this.selectedSection) {
                 // There is no selected section yet, calculate which one to load.
                 if (this.initialSectionId || this.initialSectionNumber) {
                     // We have an input indicating the section ID to load. Search the section.
                     for (let i = 0; i < this.sections.length; i++) {
-                        const section = this.sections[i];
+                        const section = this.removeHrefLink(this.sections[i]);
                         if ((section.id && section.id == this.initialSectionId) ||
                                 (section.section && section.section == this.initialSectionNumber)) {
                             this.loaded = true;
@@ -187,13 +188,27 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
      * Set the input data for components.
      */
     protected setInputData(): void {
-        this.data.course = this.course;
-        this.data.sections = this.sections;
+       // console.log(JSON.stringify(this.course));
+       // this.course.find("a").contents().unwrap();
+        this.data.course = this.removeDataa(this.course);
+        //alert(JSON.stringify(this.sections));
+        this.data.sections = this.removeDataa(this.sections);;
         this.data.initialSectionId = this.initialSectionId;
         this.data.initialSectionNumber = this.initialSectionNumber;
         this.data.downloadEnabled = this.downloadEnabled;
         this.data.moduleId = this.moduleId;
         this.data.completionChanged = this.completionChanged;
+    }
+
+    protected removeDataa(course)
+    {        
+             if(course['summary']){
+              var summary= course['summary'];
+             var reg = summary.replace(/<\/?a[^>]*>/g, "");
+               course['summary']=reg;
+             }
+           
+                return course;
     }
 
     /**
@@ -221,6 +236,7 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
             });
 
             this.cfDelegate.getAllSectionsComponent(this.injector, this.course).then((component) => {
+
                 this.allSectionsComponent = component;
             });
         }
@@ -245,9 +261,24 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
      *
      * @param {any} newSection The new selected section.
      */
+      public removeHrefLink(course)
+    {      
+             if(course['summary']){
+              var summary= course['summary'];
+             var reg = summary.replace(/<\/?a[^>]*>/g, "");
+               course['summary']=reg;
+             }
+           
+                return course;
+    }
     sectionChanged(newSection: any): void {
         const previousValue = this.selectedSection;
-        this.selectedSection = newSection;
+        var newsecction= this.removeHrefLink(newSection);
+        //console.log(JSON.stringify(newsecction));
+
+        this.selectedSection = newsecction;
+        
+
         this.data.section = this.selectedSection;
 
         if (newSection.id != this.allSectionsId) {
@@ -315,6 +346,8 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
         e.stopPropagation();
 
         section.isCalculating = true;
+       // alert(JSON.stringify(section));
+
         this.courseHelper.confirmDownloadSizeSection(this.course.id, section, this.sections).then(() => {
             this.prefetchSection(section, true);
         }, (error) => {
