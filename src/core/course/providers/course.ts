@@ -234,7 +234,7 @@ export class CoreCourseProvider {
                     omitExpires: preferCache
                 };
 
-            // If modName is set, retrieve all modules of that type. Otherwise get only the module.
+            // If modName is set, retrieve all modu les of that type. Otherwise get only the module.
             if (modName) {
                 params.options.push({
                     name: 'modname',
@@ -265,6 +265,7 @@ export class CoreCourseProvider {
                 // Error getting the module. Try to get all contents (without filtering by module).
                 return this.getSections(courseId, false, false, preSets, siteId);
             }).then((sections) => {
+              //  alert(JSON.stringify(sections));
                 for (let i = 0; i < sections.length; i++) {
                     const section = sections[i];
                     for (let j = 0; j < section.modules.length; j++) {
@@ -530,7 +531,7 @@ export class CoreCourseProvider {
                 modules = modules.concat(section.modules);
             }
         });
-
+       // alert(JSON.stringify(modules));
         return modules;
     }
 

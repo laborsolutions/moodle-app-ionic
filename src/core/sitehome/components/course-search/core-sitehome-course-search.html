@@ -1,4 +1,15 @@
-<a *ngIf="show" ion-item text-wrap [navPush]="'CoreCoursesSearchPage'">
-    <ion-icon name="search" item-start></ion-icon>
-    <h2>{{ 'core.courses.searchcourses' | translate}}</h2>
-</a>
+
+<ion-card>
+        <a *ngIf="show" ion-item text-wrap [navPush]="'CoreCoursesSearchPage'">
+               <img src="assets/search.png" />
+        <ion-card-content>
+         <p>{{ 'core.courses.searchcourses' | translate}}</p>
+                
+            
+         
+        </ion-card-content>
+    </a>
+      </ion-card>
+    
+    
+

@@ -7,13 +7,35 @@
             <ion-col no-padding col-10>
                 <ion-slides (ionSlideDidChange)="slideChanged()" [slidesPerView]="slidesShown">
                     <ng-container *ngFor="let tab of tabs; let idx = index">
-                        <ion-slide *ngIf="tab.show">
+                        <ion-slide *ngIf="tab.title !='Site home' && tab.title !='Notes' && tab.title !='Contents' && tab.title !='Courses' && tab.title !='Participants' && tab.title !='Competencies'">
                             <a [attr.aria-selected]="selected == idx" (click)="selectTab(idx)" class="tab-slide">
                                 <core-icon *ngIf="tab.icon" [name]="tab.icon"></core-icon>
                                 <span *ngIf="tab.title">{{ tab.title }}</span>
                                 <ion-badge *ngIf="tab.badge" [color]="tab.badgeStyle" class="tab-badge">{{tab.badge}}</ion-badge>
-                            </a>
+                            </a>                            
                         </ion-slide>
+                         <ion-slide *ngIf="tab.title =='Contents'">
+                            <a [attr.aria-selected]="selected == idx" (click)="selectTab(idx)" class="tab-slide">
+                                <core-icon *ngIf="tab.icon" [name]="tab.icon"></core-icon>
+                                <span *ngIf="tab.title">Content</span>
+                                <ion-badge *ngIf="tab.badge" [color]="tab.badgeStyle" class="tab-badge">{{tab.badge}}</ion-badge>
+                            </a>                            
+                        </ion-slide>
+                        <ion-slide *ngIf="tab.title =='Courses'">
+                            <a [attr.aria-selected]="selected == idx" (click)="selectTab(idx)" class="tab-slide">
+                                <core-icon *ngIf="tab.icon" [name]="tab.icon"></core-icon>
+                                <span *ngIf="tab.title">My Courses</span>
+                                <ion-badge *ngIf="tab.badge" [color]="tab.badgeStyle" class="tab-badge">{{tab.badge}}</ion-badge>
+                            </a>                            
+                        </ion-slide>
+                        <div *ngIf="tab.title ==='Site home'">
+                            <a [attr.aria-selected]="selected == idx" (click)="openSearch()" class="tab-slide">
+                                <core-icon *ngIf="tab.icon" [name]="tab.icon"></core-icon>
+                                <span *ngIf="tab.title">Search</span>
+                                <ion-badge *ngIf="tab.badge" [color]="tab.badgeStyle" class="tab-badge">{{tab.badge}}</ion-badge>
+                            </a>                            
+                        </div>
+                        
                     </ng-container>
                 </ion-slides>
             </ion-col>

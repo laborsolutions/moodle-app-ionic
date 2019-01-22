@@ -692,6 +692,9 @@ ion-app.app-root {
     max-height: $core-toolbar-button-image-width - 1;
     border-radius: 50%;
   }
+  .toolbar-title-md{
+  text-align:center;
+  }
 
   // Footer with auto height.
   .footer.footer-adjustable {

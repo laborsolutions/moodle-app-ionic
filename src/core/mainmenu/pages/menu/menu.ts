@@ -103,6 +103,7 @@ export class CoreMainMenuPage implements OnDestroy {
                     // By default, course overview will be loaded (3.3+). Check if we need to select Site Home or My Courses.
                     for (let i = 0; i < this.tabs.length; i++) {
                         const handler = handlers[i];
+                       // alert(JSON.stringify(handlers[i]));
                         if ((displaySiteHome && handler.name == 'CoreSiteHome') ||
                                 (!displaySiteHome && handler.name == 'CoreCourses')) {
                             this.initialTab = i;
