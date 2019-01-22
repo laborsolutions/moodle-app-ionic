@@ -71,7 +71,18 @@ export class CoreLoginCredentialsPage {
      * View loaded.
      */
     ionViewDidLoad(): void {
-       return this.login();
+      // return this.login();
+      this.treatSiteConfig();
+
+      if (this.loginHelper.isFixedUrlSet()) {
+          // Fixed URL, we need to check if it uses browser SSO login.
+          //this.checkSite(this.siteUrl);
+          this.siteChecked = true;
+          this.pageLoaded = true;
+      } else {
+          this.siteChecked = true;
+          this.pageLoaded = true;
+      }
     }
 
     /**
@@ -164,17 +175,18 @@ export class CoreLoginCredentialsPage {
     login(): void {
         this.appProvider.closeKeyboard();
        // const url = window.location.href;
-         const siteUrl = this.siteUrl,
-         username = this.autologin('username'),
-         password = this.autologin('password');
+        
+        // username = this.autologin('username'),
+        // password = this.autologin('password');
        //   alert(username);
         // Get input data.
 
          // username='johndoe',
         //  password='Smart@123';
-        //  this.locationHref = url.substr(0, url.indexOf('#'));
-          //  username = this.credForm.value.username,
-          //  password = this.credForm.value.password;
+
+        const siteUrl = this.siteUrl,
+            username = this.credForm.value.username,
+            password = this.credForm.value.password;
 
         // if (!this.siteChecked || this.isBrowserSSO) {
             // Site wasn't checked (it failed) or a previous check determined it was SSO. Let's check again.
