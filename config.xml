@@ -55,8 +55,6 @@
         <splash qualifier="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
-        <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
-        <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png" />
         <icon density="xxhdpi" src="resources/android/icon/drawable-xxhdpi-icon.png" />
         <icon density="xxxhdpi" src="resources/android/icon/drawable-xxxhdpi-icon.png" />
     </platform>
@@ -130,6 +128,6 @@
     <plugin name="cordova-android-support-gradle-release" spec="^1.4.4">
         <variable name="ANDROID_SUPPORT_VERSION" value="27.1.0" />
     </plugin>
-    <engine name="android" spec="7.0.0" />
     <engine name="ios" spec="4.5.4" />
+    <engine name="android" spec="7.1.4" />
 </widget>
