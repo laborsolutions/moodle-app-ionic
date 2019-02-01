@@ -28,6 +28,7 @@
         </core-tab>
 
         <!-- Courses tab. -->
+
         <core-tab [title]="'core.courses.courses' | translate" (ionSelect)="tabChanged('courses')">
             <ng-template>
                 <ion-content>
@@ -63,7 +64,9 @@
                         <div>
                             <ion-grid no-padding>
                                 <ion-row no-padding>
-                                    <ion-col *ngFor="let course of filteredCourses" no-padding col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 align-self-stretch>
+                                    <ion-col *ngFor="let course of filteredCourses; let i = ''" no-padding col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 align-self-stretch>
+                                   
+
                                         <core-courses-course-progress [course]="course" class="core-courseoverview"></core-courses-course-progress>
                                     </ion-col>
                                 </ion-row>

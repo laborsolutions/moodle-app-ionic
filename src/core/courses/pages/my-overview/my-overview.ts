@@ -191,6 +191,7 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
      */
     protected fetchMyOverviewCourses(): Promise<any> {
         return this.fetchUserCourses().then((courses) => {
+           courses= this.onvertSummarySpanToLi(courses);
             // Fetch course completion status.
             return Promise.all(courses.map((course) => {
                 if (typeof course.enablecompletion != 'undefined' && course.enablecompletion == 0) {
@@ -207,6 +208,8 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
                 });
             }));
         }).then((courses) => {
+            courses= this.onvertSummarySpanToLi(courses);
+
             const today = moment().unix();
 
             this.courses.past = [];
@@ -247,6 +250,7 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
       
            var mycourse=[];
            courses.forEach((course) => {
+              // course['categoryName']=this.getCategoryByCourseId(course['category']);
                if(course['summary']){
                   course['summary']=this.replaceDefineTags(course['summary']);
                  }
@@ -288,10 +292,24 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
       }
     }
 
+    protected getCategoryByCourseId(categoryId): Promise<any[]>{
+            return this.coursesProvider.getCategories(categoryId).then((cat) => {
+                console.log(JSON.stringify(cat));
+            //   const mycatx = cat.map((catName) => {
+                    
+            //     return catName.name;
+            // });
+               
+                 return cat;
+           // return cat[0].name.__zone_symbol__value;
+            });
+    }
 
     protected fetchUserCourses(): Promise<any[]> {
+
         return this.coursesProvider.getUserCourses().then((courses) => {
-            //alert(JSON.stringify(courses));
+
+           
             courses = this.onvertSummarySpanToLi(courses);
             const promises = [],
                 courseIds = courses.map((course) => {
@@ -301,7 +319,19 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
             if (this.coursesProvider.canGetAdminAndNavOptions()) {
                 // Load course options of the course.
                 promises.push(this.coursesProvider.getCoursesAdminAndNavOptions(courseIds).then((options) => {
-                    courses.forEach((course) => {
+                       
+                    var jsssxczc = null ;
+               courses.forEach((course) => {
+                        
+                        if(jsssxczc != course.category){
+                            course['categoryName'] = this.getCategoryByCourseId(course.category);  
+                            jsssxczc=course.category;
+                        }else{
+                              jsssxczc=course.category; 
+                                
+                            course['categoryName'] =null;
+                        }
+                       
                         course.navOptions = options.navOptions[course.id];
                         course.admOptions = options.admOptions[course.id];
                     });
@@ -314,10 +344,10 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
 
             return Promise.all(promises).then(() => {
                 return courses.sort((a, b) => {
-                    const compareA = a.fullname.toLowerCase(),
-                        compareB = b.fullname.toLowerCase();
-
-                    return compareA.localeCompare(compareB);
+                    // const compareA = a.category,
+                    //     compareB = b.category;
+                       return parseInt(a.category) - parseInt(b.category);
+                   // return compareA.localeCompare(compareB);
                 });
             });
         });

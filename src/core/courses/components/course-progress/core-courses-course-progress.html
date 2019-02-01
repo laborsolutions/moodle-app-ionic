@@ -1,4 +1,14 @@
-<ion-card>
+ <div>
+  <ion-card-header *ngIf="course.categoryName != null" style="max-height: 35px; color:#080091">                
+    {{ course.categoryName.__zone_symbol__value[0].name }} 
+  </ion-card-header>
+   <ion-card-header *ngIf="course.categoryName == null" style="max-height: 35px">                
+   
+  </ion-card-header>
+</div>
+
+
+<ion-card style="height: auto;">
     <div (click)="openCourse(course)" class="core-course-thumb core-course-color-{{course.id % 10}}" [class.core-course-color-img]="course.imageThumb">
         <img *ngIf="course.imageThumb" [src]="course.imageThumb" core-external-content alt=""/>
     </div>
