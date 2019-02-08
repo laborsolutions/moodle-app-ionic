@@ -246,8 +246,8 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
      */
 
     public onvertSummarySpanToLi(courses)
-    {    
-      
+    {
+
            var mycourse=[];
            courses.forEach((course) => {
               // course['categoryName']=this.getCategoryByCourseId(course['category']);
@@ -261,16 +261,43 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
 
     public replaceDefineTags(stringg)
     {
+      // alert(stringg);
+       stringg= stringg.replace(/<span> /g, "");
+       stringg= stringg.replace(/ <\/span>/g, "");
        stringg= stringg.replace(/<span>/g, "");
        stringg= stringg.replace(/<\/span>/g, "");
        stringg= stringg.replace(/<\/?a[^>]*>/g, "");
        stringg= stringg.replace(/<p>/g, "");
        stringg= stringg.replace(/<\/p>/g, "");
-   
-     return  this.makeUlLi(stringg);
-      
-    }
+       stringg= stringg.replace(/,\s+/g, ",");
+       stringg=  this.makeUlLinew(stringg);
+       stringg=  this.makeUlLi(stringg);
 
+      console.log(stringg);
+      return stringg;
+
+
+    }
+    makeUlLinew(stringg) {
+     var stringgs= stringg.split(', ');
+     if(stringgs.length > 1 )
+     {
+
+         var li='<ul>';
+         stringgs.forEach((string) => {
+                 li += '<li>';
+                 li += string;
+                 li += '</li>';
+         });
+           li += '</ul>';
+           console.log(li);
+           return li;
+
+     }else
+     {
+       return stringg;
+     }
+   }
      makeUlLi(stringg) {
       var stringgs= stringg.split(',');
       if(stringgs.length > 1 )
@@ -288,7 +315,7 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
 
       }else
       {
-        return stringg;  
+        return stringg;
       }
     }
 
@@ -296,10 +323,10 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
             return this.coursesProvider.getCategories(categoryId).then((cat) => {
                 console.log(JSON.stringify(cat));
             //   const mycatx = cat.map((catName) => {
-                    
+
             //     return catName.name;
             // });
-               
+
                  return cat;
            // return cat[0].name.__zone_symbol__value;
             });
@@ -309,7 +336,7 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
 
         return this.coursesProvider.getUserCourses().then((courses) => {
 
-           
+
             courses = this.onvertSummarySpanToLi(courses);
             const promises = [],
                 courseIds = courses.map((course) => {
@@ -319,19 +346,19 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
             if (this.coursesProvider.canGetAdminAndNavOptions()) {
                 // Load course options of the course.
                 promises.push(this.coursesProvider.getCoursesAdminAndNavOptions(courseIds).then((options) => {
-                       
+
                     var jsssxczc = null ;
                courses.forEach((course) => {
-                        
+
                         if(jsssxczc != course.category){
-                            course['categoryName'] = this.getCategoryByCourseId(course.category);  
+                            course['categoryName'] = this.getCategoryByCourseId(course.category);
                             jsssxczc=course.category;
                         }else{
-                              jsssxczc=course.category; 
-                                
+                              jsssxczc=course.category;
+
                             course['categoryName'] =null;
                         }
-                       
+
                         course.navOptions = options.navOptions[course.id];
                         course.admOptions = options.admOptions[course.id];
                     });
