@@ -142,13 +142,13 @@ export class CoreCourseSectionPage implements OnDestroy {
         });
     }
        public removeHrefLink(course)
-    {      
+    {
              if(course['summary']){
               var summary= course['summary'];
              var reg = summary.replace(/<\/?a[^>]*>/g, "");
                course['summary']=reg;
              }
-           
+
                 return course;
     }
     /**
@@ -161,7 +161,7 @@ export class CoreCourseSectionPage implements OnDestroy {
         }).then((course) => {
             const promises = [];
             let promise;
-               
+
             if (course) {
                 this.course = this.removeHrefLink(course);
             }
@@ -204,14 +204,14 @@ export class CoreCourseSectionPage implements OnDestroy {
                         return section;
                     });
                      //alert(JSON.stringify(this.removeHrefLink(this.course))));
-                    // if (this.courseFormatDelegate.canViewAllSections( this.removeHrefLink(this.course))) {
-                    //    // Add a fake first section (all sections)
-                    //     this.sections.unshift({
-                    //         name: this.translate.instant('core.course.allsections'),
-                    //         id: CoreCourseProvider.ALL_SECTIONS_ID,
-                    //         hasContent: true
-                    //     });
-                    // }
+                    if (this.courseFormatDelegate.canViewAllSections( this.removeHrefLink(this.course))) {
+                       // Add a fake first section (all sections)
+                        this.sections.unshift({
+                            name: this.translate.instant('core.course.allsections'),
+                            id: CoreCourseProvider.ALL_SECTIONS_ID,
+                            hasContent: true
+                        });
+                    }
 
                     // Get the title again now that we have sections.
                     this.title = this.courseFormatDelegate.getCourseTitle(this.course, this.sections);
