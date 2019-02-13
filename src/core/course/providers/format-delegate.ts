@@ -253,13 +253,13 @@ export class CoreCourseFormatDelegate extends CoreDelegate {
     }
 
       public removeHrefLink(course)
-    {      
+    {
              if(course['summary']){
               var summary= course['summary'];
              var reg = summary.replace(/<\/?a[^>]*>/g, "");
                course['summary']=reg;
              }
-           
+
                 return course;
     }
 

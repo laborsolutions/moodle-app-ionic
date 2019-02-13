@@ -7,7 +7,7 @@
             <ion-col no-padding col-10>
                 <ion-slides (ionSlideDidChange)="slideChanged()" [slidesPerView]="slidesShown">
                     <ng-container *ngFor="let tab of tabs; let idx = index">
-                        <ion-slide *ngIf="tab.title !='Site home' && tab.title !='Notes' && tab.title !='Contents' && tab.title !='Courses' && tab.title !='Participants' && tab.title !='Competencies'">
+                        <ion-slide *ngIf="tab.title !='Site home' && tab.title !='Notes' && tab.title !='Contents' && tab.title !='Courses' && tab.title !='Participants' && tab.title !='Competencies' && tab.title !='Completion'">
                             <a [attr.aria-selected]="selected == idx" (click)="selectTab(idx)" class="tab-slide">
                                 <core-icon *ngIf="tab.icon" [name]="tab.icon"></core-icon>
                                 <span *ngIf="tab.title">{{ tab.title }}</span>

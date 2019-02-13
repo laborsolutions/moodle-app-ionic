@@ -80,6 +80,7 @@
     "com-darryncampbell-cordova-plugin-intent": "^1.1.2",
     "cordova-android": "7.1.4",
     "cordova-android-support-gradle-release": "^1.4.7",
+    "cordova-browser": "5.0.4",
     "cordova-clipboard": "^1.2.1",
     "cordova-ios": "4.5.4",
     "cordova-plugin-app-event": "^1.2.1",
@@ -138,7 +139,8 @@
   "cordova": {
     "platforms": [
       "ios",
-      "android"
+      "android",
+      "browser"
     ],
     "plugins": {
       "cordova-plugin-file": {},
