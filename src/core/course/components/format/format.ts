@@ -131,6 +131,7 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
      * Detect changes on input properties.
      */
     ngOnChanges(changes: { [name: string]: SimpleChange }): void {
+    //  alert('section changed');
         this.setInputData();
 
         if (changes.course) {
@@ -161,6 +162,8 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
                     });
                 }
             } else {
+
+            //  alert('test');
                 // We have a selected section, but the list has changed. Search the section in the list.
                 let newSection;
                 for (let i = 0; i < this.sections.length; i++) {
@@ -201,13 +204,13 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     protected removeDataa(course)
-    {        
+    {
              if(course['summary']){
               var summary= course['summary'];
              var reg = summary.replace(/<\/?a[^>]*>/g, "");
                course['summary']=reg;
              }
-           
+
                 return course;
     }
 
@@ -262,13 +265,21 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
      * @param {any} newSection The new selected section.
      */
       public removeHrefLink(course)
-    {      
+    {
              if(course['summary']){
-              var summary= course['summary'];
-             var reg = summary.replace(/<\/?a[^>]*>/g, "");
-               course['summary']=reg;
+               var summary= course['summary'];
+              var reg = summary.replace(/<\/?a[^>]*>/g, "");
+              reg= reg.replace(/<span> /g, "");
+              reg= reg.replace(/ <\/span>/g, "");
+              reg= reg.replace(/<span>/g, "");
+              reg= reg.replace(/<\/span>/g, "");
+              reg= reg.replace(/<\/?a[^>]*>/g, "");
+              reg= reg.replace(/<p>/g, "");
+              reg= reg.replace(/<\/p>/g, "");
+              reg= reg.replace(/,\s+/g, ",");
+                course['summary']=reg;
              }
-           
+
                 return course;
     }
     sectionChanged(newSection: any): void {
@@ -277,7 +288,7 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
         //console.log(JSON.stringify(newsecction));
 
         this.selectedSection = newsecction;
-        
+
 
         this.data.section = this.selectedSection;
 
@@ -368,6 +379,7 @@ export class CoreCourseFormatComponent implements OnInit, OnChanges, OnDestroy {
      *                           are being downloaded.
      */
     protected prefetchSection(section: any, manual?: boolean): void {
+
         this.courseHelper.prefetchSection(section, this.course.id, this.sections).catch((error) => {
             // Don't show error message if it's an automatic download.
             if (!manual) {

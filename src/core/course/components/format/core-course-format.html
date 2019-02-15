@@ -21,17 +21,7 @@
 
     <core-loading [hideUntil]="loaded">
         <!-- Section selector. -->
-        <core-dynamic-component [component]="sectionSelectorComponent" [data]="data">
-            <div text-wrap *ngIf="displaySectionSelector && sections && sections.length" padding class="clearfix" ion-row justify-content-between>
-                <button float-start ion-button icon-start (click)="showSectionSelector($event)" color="light" class="core-button-select button-no-uppercase" ion-col>
-                    <core-icon name="fa-folder"></core-icon>
-                    {{selectedSection && (selectedSection.formattedName || selectedSection.name) || 'core.course.sections' | translate }}
-                    <ion-icon name="arrow-dropdown" ios="md-arrow-dropdown"></ion-icon>
-                </button>
-                <!-- Section download. -->
-                <ng-container *ngTemplateOutlet="sectionDownloadTemplate; context: {section: selectedSection}"></ng-container>
-            </div>
-        </core-dynamic-component>
+
 
         <!-- Single section. -->
         <div *ngIf="selectedSection && selectedSection.id != allSectionsId">

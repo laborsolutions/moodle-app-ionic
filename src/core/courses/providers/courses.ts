@@ -671,11 +671,11 @@ export class CoreCoursesProvider {
                     cacheKey: this.getUserCoursesCacheKey(),
                     omitExpires: !!preferCache
                 };
-                
-               return site.read('core_enrol_get_users_courses', data, preSets);
-                 
 
-             
+               return site.read('core_enrol_get_users_courses', data, preSets);
+
+
+
         });
     }
 

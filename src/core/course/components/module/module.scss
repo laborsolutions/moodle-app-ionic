@@ -130,3 +130,24 @@ ion-app.app-root.wp core-course-module {
         margin-bottom: 8px;
     }
 }
+.moduleavailabilityinfo a{
+display: none;
+
+}
+.moduleavailabilityinfo .badge-md{
+background-color: none !important;
+color: #3a3a3a !important;
+}
+.moduleavailabilityinfo{
+text-align: left;
+}
+.mminfo{
+  display: flex;
+  background-color: #ffffff !important;
+  color: #3a3a3a !important;
+  padding-left: 0px !important;
+}
+.moduleavailabilityinfo strong{display:none;}
+section * {font-size: 1.7rm !important;}
+a {text-decoration: none !important; color: #3a3a3a !important;}
+h5 b{font-size: 1.7rm !important;}

@@ -73,7 +73,7 @@ export class CoreLoginCredentialsPage {
     ionViewDidLoad(): void {
        return this.login();
     }
-  
+
     /**
      * View left.
      */

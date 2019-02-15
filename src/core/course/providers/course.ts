@@ -202,6 +202,24 @@ export class CoreCourseProvider {
      *                           number of WS calls, but it isn't recommended for modules that can return a lot of contents.
      * @return {Promise<any>} Promise resolved with the module.
      */
+     public removeHrefLink(course)
+  {
+           if(course['summary']){
+             var summary= course['summary'];
+            var reg = summary.replace(/<\/?a[^>]*>/g, "");
+            reg= reg.replace(/<span> /g, "");
+            reg= reg.replace(/ <\/span>/g, "");
+            reg= reg.replace(/<span>/g, "");
+            reg= reg.replace(/<\/span>/g, "");
+            reg= reg.replace(/<\/?a[^>]*>/g, "");
+            reg= reg.replace(/<p>/g, "");
+            reg= reg.replace(/<\/p>/g, "");
+            reg= reg.replace(/,\s+/g, ",");
+              course['summary']=reg;
+           }
+
+              return course;
+  }
     getModule(moduleId: number, courseId?: number, sectionId?: number, preferCache?: boolean, ignoreCache?: boolean,
             siteId?: string, modName?: string): Promise<any> {
         siteId = siteId || this.sitesProvider.getCurrentSiteId();
@@ -265,9 +283,12 @@ export class CoreCourseProvider {
                 // Error getting the module. Try to get all contents (without filtering by module).
                 return this.getSections(courseId, false, false, preSets, siteId);
             }).then((sections) => {
+
               //  alert(JSON.stringify(sections));
+
+
                 for (let i = 0; i < sections.length; i++) {
-                    const section = sections[i];
+                    const section = this.removeHrefLink(sections[i]);
                     for (let j = 0; j < section.modules.length; j++) {
                         const module = section.modules[j];
                         if (module.id == moduleId) {
@@ -444,9 +465,10 @@ export class CoreCourseProvider {
         }
 
         return this.getSections(courseId, excludeModules, excludeContents, undefined, siteId).then((sections) => {
+
             for (let i = 0; i < sections.length; i++) {
                 if (sections[i].id == sectionId) {
-                    return sections[i];
+                    return this.removeHrefLink(sections[i]);
                 }
             }
 
@@ -487,6 +509,7 @@ export class CoreCourseProvider {
             };
 
             return site.read('core_course_get_contents', params, preSets).then((sections) => {
+                  //    alert(JSON.stringify(sections))
                 const siteHomeId = site.getSiteHomeId();
                 let showSections = true;
 
@@ -528,7 +551,7 @@ export class CoreCourseProvider {
         let modules = [];
         sections.forEach((section) => {
             if (section.modules) {
-                modules = modules.concat(section.modules);
+                modules = modules.concat(this.removeHrefLink(section.modules));
             }
         });
        // alert(JSON.stringify(modules));
