@@ -70,8 +70,9 @@ export class CoreCourseSectionPage implements OnDestroy {
             private textUtils: CoreTextUtilsProvider, private coursesProvider: CoreCoursesProvider,
             sitesProvider: CoreSitesProvider, private navCtrl: NavController, private injector: Injector,
             private prefetchDelegate: CoreCourseModulePrefetchDelegate) {
+      //   alert(navParams.get('sectionId'));
         this.course = navParams.get('course');
-        this.sectionId = navParams.get('sectionId');
+        this.sectionId = -1;
         this.sectionNumber = navParams.get('sectionNumber');
         this.module = navParams.get('module');
 
