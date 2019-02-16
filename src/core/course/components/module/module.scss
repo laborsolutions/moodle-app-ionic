@@ -150,3 +150,21 @@ text-align: left;
 .moduleavailabilityinfo strong{display:none;}
 section * {font-size: 1.7rm !important;}
 a {text-decoration: none !important; color: #3a3a3a !important;}
+.module_image_part{
+  float: left;
+  width: 10%
+}
+.module_image_part img{
+width:30px !important;
+height: 30px !important;
+}
+.module_content_part{
+float:left;
+width: 90%;
+}
+.module_content_part .card-content{
+margin: 0px;
+padding: 0px;
+margin-left: 5px;
+margin-bottom: 10px;
+}
