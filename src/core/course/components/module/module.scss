@@ -130,10 +130,10 @@ ion-app.app-root.wp core-course-module {
         margin-bottom: 8px;
     }
 }
-.moduleavailabilityinfo a{
-display: none;
-
-}
+// .moduleavailabilityinfo a{
+// display: none;
+//
+// }
 .moduleavailabilityinfo .badge-md{
 background-color: none !important;
 color: #3a3a3a !important;
@@ -147,9 +147,9 @@ text-align: left;
   color: #3a3a3a !important;
   padding-left: 0px !important;
 }
-.moduleavailabilityinfo strong{display:none;}
+// .moduleavailabilityinfo strong{display:none;}
 section * {font-size: 1.7rm !important;}
-a {text-decoration: none !important; color: #3a3a3a !important;}
+a {text-decoration: none !important;}
 .module_image_part{
   float: left;
   width: 10%
