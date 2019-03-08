@@ -188,7 +188,7 @@
   },
   "main": "desktop/electron.js",
   "build": {
-    "appId": "com.moodle.moodledesktop",
+    "appId": "com.wovo.wovolearning",
     "productName": "Moodle Desktop",
     "files": [
       "desktop/electron.js",
