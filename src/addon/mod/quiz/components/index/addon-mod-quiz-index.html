@@ -116,12 +116,12 @@
             </ion-item>
 
             <!-- Button to open in browser if it cannot be attempted in the app. -->
-            <ion-item *ngIf="!buttonText && ((unsupportedQuestions && unsupportedQuestions.length) || (unsupportedRules && unsupportedRules.length) || behaviourSupported === false)">
+            <!-- <ion-item *ngIf="!buttonText && ((unsupportedQuestions && unsupportedQuestions.length) || (unsupportedRules && unsupportedRules.length) || behaviourSupported === false)">
                 <a ion-button block [href]="externalUrl" core-link icon-end>
                     {{ 'core.openinbrowser' | translate }}
                     <ion-icon name="open"></ion-icon>
                 </a>
-            </ion-item>
+            </ion-item> -->
 
             <!-- Spinner shown while downloading or calculating. -->
             <ion-item text-center *ngIf="showStatusSpinner">
