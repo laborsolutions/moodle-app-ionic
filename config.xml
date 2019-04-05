@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.wovo.wovolearning" version="3.5.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Wovo Learning</name>
+    <name>WOVO E-Learning</name>
     <description>Wovo learning app</description>
     <author email="mobile@moodle.com" href="http://moodle.com">Wovo learning team</author>
     <content src="index.html" />
