@@ -174,7 +174,6 @@ export class CoreWSProvider {
      * @return {Promise<any>} Promise resolved with the response data in success and rejected if it fails.
      */
     call(method: string, data: any, preSets: CoreWSPreSets): Promise<any> {
-
         let siteUrl;
 
         if (!preSets) {

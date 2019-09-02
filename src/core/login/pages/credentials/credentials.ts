@@ -142,6 +142,7 @@ export class CoreLoginCredentialsPage {
      * Treat the site configuration (if it exists).
      */
     protected treatSiteConfig(): void {
+        alert(JSON.stringify(this.siteConfig))
         if (this.siteConfig) {
             this.siteName = this.siteConfig.sitename;
             this.logoUrl = this.siteConfig.logourl || this.siteConfig.compactlogourl;
@@ -220,6 +221,7 @@ export class CoreLoginCredentialsPage {
 
         // Start the authentication process.
         this.sitesProvider.getUserToken(siteUrl, username, password).then((data) => {
+
             return this.sitesProvider.newSite(data.siteUrl, data.token, data.privateToken).then((id) => {
                 // Reset fields so the data is not in the view anymore.
                 this.credForm.controls['username'].reset();
