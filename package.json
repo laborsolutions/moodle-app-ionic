@@ -78,6 +78,7 @@
     "@types/promise.prototype.finally": "^2.0.2",
     "chart.js": "^2.7.2",
     "cordova-android": "7.0.0",
+    "cordova-browser": "5.0.4",
     "cordova-ios": "4.5.4",
     "font-awesome": "4.7.0",
     "ionic-angular": "^3.9.2",
@@ -117,7 +118,8 @@
   "cordova": {
     "platforms": [
       "android",
-      "ios"
+      "ios",
+      "browser"
     ]
   },
   "main": "desktop/electron.js",
