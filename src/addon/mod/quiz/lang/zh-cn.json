@@ -58,7 +58,7 @@
     "showall": "在一页上显示所有问题",
     "showeachpage": "一次显示一页",
     "startattempt": "开始尝试",
-    "startedon": "开始了",
+    "startedon": "开始于",
     "stateabandoned": "从未提交过",
     "statefinished": "已完成",
     "statefinisheddetails": "提交{{$a}}",
