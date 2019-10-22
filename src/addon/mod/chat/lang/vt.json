@@ -1,0 +1,19 @@
+{
+    "beep": "Tiếng kêu bíp",
+    "currentusers": "Những người dùng hiện tại",
+    "enterchat": "Nhấn vào đây để vào cuộc trò chuyện ngay bây giờ",
+    "entermessage": "Nhập tin nhắn của bạn",
+    "errorwhileconnecting": "Lỗi khi kết nối với trò chuyện.",
+    "errorwhilegettingchatdata": "Lỗi trong khi nhận dữ liệu trò chuyện.",
+    "errorwhilegettingchatusers": "Lỗi trong khi nhận người dùng trò chuyện.",
+    "errorwhileretrievingmessages": "Lỗi trong khi truy xuất thư từ máy chủ.",
+    "errorwhilesendingmessage": "Lỗi trong khi gửi tin nhắn.",
+    "messagebeepsyou": "{{$a}} vừa bíp bạn!",
+    "messageenter": "{{$a}} vừa tham gia cuộc trò chuyện này",
+    "messageexit": "{{$a}} đã rời khỏi cuộc trò chuyện này",
+    "mustbeonlinetosendmessages": "đã rời khỏi cuộc trò chuyện này",
+    "nomessages": "Chưa có tin nhắn",
+    "send": "Gửi",
+    "sessionstart": "Phiên trò chuyện tiếp theo sẽ bắt đầu vào{{$a.date}}, ({{$a.fromnow}} từ giờ)",
+    "talk": "Nói chuyện"
+}

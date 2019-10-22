@@ -1,0 +1,6 @@
+{
+    "dimensioncommentfor": "Komentar untuk {{$a}}",
+    "dimensiongradefor": "Nilai untuk {{$a}}",
+    "dimensionnumber": "Aspek {{$a}}",
+    "mustchoosegrade": "Anda harus memilih nilai untuk aspek ini"
+}
