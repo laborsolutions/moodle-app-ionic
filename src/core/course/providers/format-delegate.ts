@@ -252,6 +252,17 @@ export class CoreCourseFormatDelegate extends CoreDelegate {
         });
     }
 
+      public removeHrefLink(course)
+    {
+             if(course['summary']){
+              var summary= course['summary'];
+             var reg = summary.replace(/<\/?a[^>]*>/g, "");
+               course['summary']=reg;
+             }
+
+                return course;
+    }
+
     /**
      * Get the component to use to display the course summary in the default course format.
      *
@@ -260,7 +271,7 @@ export class CoreCourseFormatDelegate extends CoreDelegate {
      * @return {Promise<any>} Promise resolved with component to use, undefined if not found.
      */
     getCourseSummaryComponent(injector: Injector, course: any): Promise<any> {
-        return Promise.resolve(this.executeFunctionOnEnabled(course.format, 'getCourseSummaryComponent', [injector, course]))
+        return Promise.resolve(this.executeFunctionOnEnabled(course.format, 'getCourseSummaryComponent', [injector, this.removeHrefLink(course)]))
                 .catch((e) => {
             this.logger.error('Error getting course summary component', e);
         });
@@ -344,7 +355,7 @@ export class CoreCourseFormatDelegate extends CoreDelegate {
      * @return {Promise<any>} Promise resolved when done.
      */
     openCourse(navCtrl: NavController, course: any): Promise<any> {
-        return this.executeFunctionOnEnabled(course.format, 'openCourse', [navCtrl, course]);
+        return this.executeFunctionOnEnabled(course.format, 'openCourse', [navCtrl, this.removeHrefLink(course)]);
     }
 
     /**

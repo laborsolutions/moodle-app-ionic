@@ -127,6 +127,7 @@ export class CoreTabComponent implements OnInit, OnDestroy {
     protected getChildrenNavBarButtons(): CoreNavBarButtonsComponent[] {
         const elements = this.element.querySelectorAll('core-navbar-buttons'),
             instances: CoreNavBarButtonsComponent[] = [];
+            //console.log(elements);
 
         for (let i = 0; i < elements.length; i++) {
             const instance = this.domUtils.getInstanceByElement(elements[i]);

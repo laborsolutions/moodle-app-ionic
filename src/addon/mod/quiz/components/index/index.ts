@@ -335,11 +335,23 @@ export class AddonModQuizIndexComponent extends CoreCourseModuleMainActivityComp
             if (this.overallStats) {
                 // Show the quiz grade. The message shown is different if the quiz is finished.
                 if (this.moreAttempts) {
-                    this.gradeResult = this.translate.instant('addon.mod_quiz.gradesofar', {$a: {
-                        method: this.quizData.gradeMethodReadable,
-                        mygrade: gradeToShow,
-                        quizgrade: this.quizData.gradeFormatted
-                    }});
+
+
+                    this.translate.get('addon.mod_quiz.gradesofarStr').subscribe((str)=>{
+                        this.gradeResult = this.quizData.gradeMethodReadable+ ':'+ gradeToShow+'/'+this.quizData.gradeFormatted;
+                            // {{$a.method}}: {{$a.mygrade}} / {{$a.quizgrade}}.."
+                    });
+
+                    // this.translate.get('addon.mod_quiz.gradesofar', {$a: {
+                    //     method: this.quizData.gradeMethodReadable,
+                    //     mygrade: gradeToShow,
+                    //     quizgrade: this.quizData.gradeFormatted
+                    // }}).subscribe((str)=>{
+                    //     this.gradeResult = str;
+                    //     // alert(str)
+                    // });
+
+
                 } else {
                     const outOfShort = this.translate.instant('addon.mod_quiz.outofshort', {$a: {
                         grade: gradeToShow,

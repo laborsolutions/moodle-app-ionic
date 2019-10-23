@@ -56,6 +56,7 @@ core-ion-tab.show-tab {
     display: block;
 }
 
+
 @mixin core-ion-tabs-statusbar-padding($toolbar-height, $toolbar-padding, $content-padding, $cordova-statusbar-padding, $modal-max-width, $style-title: false) {
 
     core-ion-tab > .ion-page,

@@ -98,6 +98,7 @@ export class CoreCourseFormatDefaultHandler implements CoreCourseFormatHandler {
      */
     getCurrentSection(course: any, sections: any[]): any | Promise<any> {
         if (!this.coursesProvider.isGetCoursesByFieldAvailable()) {
+             // alert(JSON.stringify(sections));
             // Cannot get the current section, return the first one.
             if (sections[0].id != CoreCourseProvider.ALL_SECTIONS_ID) {
                 return sections[0];
@@ -155,6 +156,7 @@ export class CoreCourseFormatDefaultHandler implements CoreCourseFormatHandler {
      * @return {Promise<any>} Promise resolved when done.
      */
     openCourse(navCtrl: NavController, course: any): Promise<any> {
+          // alert(JSON.stringify(course));
         return navCtrl.push('CoreCourseSectionPage', { course: course });
     }
 

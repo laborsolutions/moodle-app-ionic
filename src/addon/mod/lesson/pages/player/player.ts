@@ -216,11 +216,13 @@ export class AddonModLessonPlayerPage implements OnInit, OnDestroy {
      * @return {Promise<boolean>} Promise resolved with true if success, resolved with false otherwise.
      */
     protected fetchLessonData(): Promise<boolean> {
+
         // Wait for any ongoing sync to finish. We won't sync a lesson while it's being played.
         return this.lessonSync.waitForSync(this.lessonId).then(() => {
             return this.lessonProvider.getLessonById(this.courseId, this.lessonId);
         }).then((lessonData) => {
             this.lesson = lessonData;
+
             this.title = this.lesson.name; // Temporary title.
 
             // If lesson has offline data already, use offline mode.
@@ -489,6 +491,8 @@ export class AddonModLessonPlayerPage implements OnInit, OnDestroy {
             this.pageData = data;
             this.title = data.page.title;
             this.pageContent = this.lessonHelper.getPageContentsFromPageData(data);
+            this.pageContent=this.pageContent.replace(/font-size:[^"]*;/g, "");
+
             this.loaded = true;
             this.currentPage = pageId;
             this.messages = this.messages.concat(data.messages);

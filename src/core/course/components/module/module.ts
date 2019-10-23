@@ -77,6 +77,7 @@ export class CoreCourseModuleComponent implements OnInit, OnDestroy {
 
         if (this.module.handlerData.showDownloadButton) {
             // Listen for changes on this module status, even if download isn't enabled.
+           // alert(JSON.stringify(this.module));
             this.prefetchHandler = this.prefetchDelegate.getPrefetchHandlerFor(this.module);
 
             this.statusObserver = this.eventsProvider.on(CoreEventsProvider.PACKAGE_STATUS_CHANGED, (data) => {

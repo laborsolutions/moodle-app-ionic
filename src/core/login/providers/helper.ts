@@ -436,8 +436,10 @@ export class CoreLoginHelperProvider {
      */
     handleSSOLoginAuthentication(siteUrl: string, token: string, privateToken?: string): Promise<any> {
         if (this.sitesProvider.isLoggedIn()) {
+
             // User logged in, he is reconnecting. Retrieve username.
             const info = this.sitesProvider.getCurrentSite().getInfo();
+
             if (typeof info != 'undefined' && typeof info.username != 'undefined') {
                 return this.sitesProvider.updateSiteToken(info.siteurl, info.username, token, privateToken).then(() => {
                     return this.sitesProvider.updateSiteInfoByUrl(info.siteurl, info.username);
@@ -586,6 +588,7 @@ export class CoreLoginHelperProvider {
      * @param {string} siteId Site to load.
      */
     protected loadSiteAndPage(page: string, params: any, siteId: string): void {
+
         if (siteId == CoreConstants.NO_SITE_ID) {
             // Page doesn't belong to a site, just load the page.
             this.appProvider.getRootNavController().setRoot(page, params);
