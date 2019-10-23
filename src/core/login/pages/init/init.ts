@@ -39,6 +39,8 @@ export class CoreLoginInitPage {
      * View loaded.
      */
     ionViewDidLoad(): void {
+
+
         // Wait for the app to be ready.
         this.initDelegate.ready().then(() => {
             // Check if there was a pending redirect.
@@ -80,8 +82,25 @@ export class CoreLoginInitPage {
      *
      * @return {Promise<any>} Promise resolved when done.
      */
-    protected loadPage(): Promise<any> {
+     protected geturlPrm(field){
+     var href =  window.location.href;
+     var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+     var string = reg.exec(href);
+     return string ? string[1] : null
 
+     }
+    protected loadPage(): Promise<any> {
+<<<<<<< HEAD
+
+=======
+     //  const ilog = this.geturlPrm('logout');
+     // if(ilog){
+     //    const redirectData = this.appProvider.getRedirect();
+     //   alert('logout');
+     //   this.sitesProvider.forceLogout();
+     //   //this.loginHelper.login();
+     //   }
+>>>>>>> b8aa7be1dafe2432a53aa17e2a6e08d359cca273
         if (this.sitesProvider.isLoggedIn()) {
             if (!this.loginHelper.isSiteLoggedOut()) {
                 // User is logged in, go to site initial page.

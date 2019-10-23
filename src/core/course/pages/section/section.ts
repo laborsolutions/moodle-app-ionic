@@ -147,7 +147,20 @@ export class CoreCourseSectionPage implements OnDestroy {
              if(course['summary']){
               var summary= course['summary'];
              var reg = summary.replace(/<\/?a[^>]*>/g, "");
+<<<<<<< HEAD
                course['summary']=reg;
+=======
+             reg= reg.replace(/<span> /g, "");
+             reg= reg.replace(/ <\/span>/g, "");
+             reg= reg.replace(/<span>/g, "");
+             reg= reg.replace(/<\/span>/g, "");
+             reg= reg.replace(/<\/?a[^>]*>/g, "");
+             reg= reg.replace(/<p>/g, "");
+             reg= reg.replace(/<\/p>/g, "");
+             reg= reg.replace(/,\s+/g, ",");
+               course['summary']=reg;
+
+>>>>>>> b8aa7be1dafe2432a53aa17e2a6e08d359cca273
              }
 
                 return course;
