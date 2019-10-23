@@ -253,7 +253,6 @@ export class AddonModQuizReviewPage implements OnInit {
 
                 if (data.grade === null || typeof data.grade == 'undefined') {
                     this.attempt.readableGrade = this.quizProvider.formatGrade(data.grade, this.quiz.decimalpoints);
-                    alert(this.attempt.readableGrade)
                 } else {
                     // Show raw marks only if they are different from the grade (like on the entry page).
                     if (this.quiz.grade != this.quiz.sumgrades) {
@@ -269,15 +268,11 @@ export class AddonModQuizReviewPage implements OnInit {
                         maxgrade: this.quizProvider.formatGrade(this.quiz.grade, this.quiz.decimalpoints)
                     };
 
-                    // var str = this.translate.instant('addon.mod_quiz.outofString');
-
                     if (this.quiz.grade != 100) {
                         gradeObject.percent = this.textUtils.roundToDecimals(this.attempt.sumgrades * 100 / this.quiz.sumgrades, 0);
-                        // this.attempt.readableGrade = this.translate.instant('addon.mod_quiz.outofpercent', {$a: gradeObject});
-                        this.attempt.readableGrade =  gradeObject.grade+'/'+gradeObject.maxgrade;
+                        this.attempt.readableGrade = this.translate.instant('addon.mod_quiz.outofpercent', {$a: gradeObject});
                     } else {
-                        // this.attempt.readableGrade = this.translate.instant('addon.mod_quiz.outof', {$a: gradeObject});
-                        this.attempt.readableGrade =  gradeObject.grade+'/'+gradeObject.maxgrade;
+                        this.attempt.readableGrade = this.translate.instant('addon.mod_quiz.outof', {$a: gradeObject});
                     }
                 }
             }

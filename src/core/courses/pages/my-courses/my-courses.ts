@@ -89,7 +89,6 @@ export class CoreCoursesMyCoursesPage implements OnDestroy {
      */
     protected fetchCourses(): Promise<any> {
         return this.coursesProvider.getUserCourses().then((courses) => {
-           // alert(courses);
             const promises = [],
                 courseIds = courses.map((course) => {
                 return course.id;

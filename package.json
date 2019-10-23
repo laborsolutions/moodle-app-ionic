@@ -56,7 +56,7 @@
     "@ionic-native/file": "^4.3.3",
     "@ionic-native/file-opener": "^4.7.0",
     "@ionic-native/file-transfer": "^4.3.3",
-    "@ionic-native/globalization": "^4.20.0",
+    "@ionic-native/globalization": "^4.3.2",
     "@ionic-native/in-app-browser": "^4.3.3",
     "@ionic-native/keyboard": "^4.3.2",
     "@ionic-native/local-notifications": "4.5.2",
@@ -77,40 +77,13 @@
     "@types/node": "^8.0.47",
     "@types/promise.prototype.finally": "^2.0.2",
     "chart.js": "^2.7.2",
-    "com-darryncampbell-cordova-plugin-intent": "^1.1.2",
-    "cordova-android": "7.1.4",
-    "cordova-android-support-gradle-release": "^1.4.7",
-    "cordova-browser": "5.0.4",
-    "cordova-clipboard": "^1.2.1",
+    "cordova-android": "7.0.0",
     "cordova-ios": "4.5.4",
-    "cordova-plugin-app-event": "^1.2.1",
-    "cordova-plugin-badge": "^0.8.8",
-    "cordova-plugin-camera": "^4.0.3",
-    "cordova-plugin-customurlscheme": "^4.3.0",
-    "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-file": "^6.0.1",
-    "cordova-plugin-file-opener2": "^2.1.4",
-    "cordova-plugin-file-transfer": "^1.7.1",
-    "cordova-plugin-globalization": "^1.11.0",
-    "cordova-plugin-inappbrowser": "^3.0.0",
-    "cordova-plugin-local-notifications-mm": "^1.0.13",
-    "cordova-plugin-media-capture": "^3.0.2",
-    "cordova-plugin-network-information": "^2.0.1",
-    "cordova-plugin-splashscreen": "^5.0.2",
-    "cordova-plugin-statusbar": "^2.4.2",
-    "cordova-plugin-whitelist": "^1.3.3",
-    "cordova-plugin-zip": "^3.1.0",
-    "cordova-sqlite-evcore-extbuild-free": "^0.9.10",
     "font-awesome": "4.7.0",
     "ionic-angular": "^3.9.2",
-    "ionic-plugin-keyboard": "^2.2.1",
     "ionicons": "3.0.0",
     "jszip": "^3.1.4",
     "moment": "^2.19.1",
-    "natives": "^1.1.6",
-    "nl.kingsquare.cordova.background-audio": "^1.0.1",
-    "phonegap-plugin-push": "git+https://github.com/moodlemobile/phonegap-plugin-push.git#moodle",
-    "pm2": "^3.2.8",
     "promise.prototype.finally": "^3.0.1",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
@@ -139,57 +112,13 @@
   },
   "cordova": {
     "platforms": [
-      "ios",
       "android",
-      "browser"
-    ],
-    "plugins": {
-      "cordova-plugin-file": {},
-      "cordova-plugin-file-transfer": {},
-      "cordova-plugin-camera": {
-        "CAMERA_USAGE_DESCRIPTION": "We need camera access to take pictures so you can attach them as part of your submissions.",
-        "PHOTOLIBRARY_USAGE_DESCRIPTION": "We need photo library access to get pictures from there so you can attach them as part of your submissions."
-      },
-      "cordova-plugin-media-capture": {
-        "CAMERA_USAGE_DESCRIPTION": "We need camera access to take pictures so you can attach them as part of your submissions.",
-        "PHOTOLIBRARY_USAGE_DESCRIPTION": "We need photo library access to get pictures from there so you can attach them as part of your submissions.",
-        "MICROPHONE_USAGE_DESCRIPTION": "We need microphone access to record sounds so you can attach them as part of your submissions."
-      },
-      "cordova-plugin-device": {},
-      "cordova-plugin-globalization": {},
-      "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-network-information": {},
-      "cordova-plugin-statusbar": {},
-      "cordova-plugin-whitelist": {},
-      "cordova-plugin-splashscreen": {},
-      "cordova-clipboard": {},
-      "nl.kingsquare.cordova.background-audio": {},
-      "phonegap-plugin-push": {
-        "SENDER_ID": "694767596569"
-      },
-      "cordova-plugin-customurlscheme": {
-        "URL_SCHEME": "moodlemobile",
-        "ANDROID_SCHEME": " ",
-        "ANDROID_HOST": " ",
-        "ANDROID_PATHPREFIX": "/"
-      },
-      "ionic-plugin-keyboard": {},
-      "cordova-plugin-zip": {},
-      "cordova-plugin-local-notifications-mm": {},
-      "cordova-plugin-file-opener2": {
-        "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      },
-      "com-darryncampbell-cordova-plugin-intent": {},
-      "cordova-sqlite-evcore-extbuild-free": {},
-      "cordova-plugin-badge": {},
-      "cordova-android-support-gradle-release": {
-        "ANDROID_SUPPORT_VERSION": "27.1.0"
-      }
-    }
+      "ios"
+    ]
   },
   "main": "desktop/electron.js",
   "build": {
-    "appId": "com.wovo.wovolearning",
+    "appId": "com.moodle.moodledesktop",
     "productName": "Moodle Desktop",
     "files": [
       "desktop/electron.js",

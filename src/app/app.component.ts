@@ -62,7 +62,6 @@ export class MoodleMobileApp implements OnInit {
 
             // Unload lang custom strings.
             this.langProvider.clearCustomStrings();
-        
         });
 
         // Listen for session expired events.

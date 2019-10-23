@@ -1,14 +1,4 @@
-<ion-card>
-        <a *ngIf="show"  text-wrap [navPush]="'CoreCoursesMyCoursesPage'">
-               <img src="assets/cat.png" />
-        <ion-card-content>
-         <p>{{ 'core.courses.categories' | translate}}</p>
-                
-            
-         
-        </ion-card-content>
-    </a>
-      </ion-card>
-
-
-
+<a *ngIf="show" ion-item text-wrap [navPush]="'CoreCoursesCategoriesPage'">
+    <ion-icon name="folder" item-start></ion-icon>
+    <h2>{{ 'core.courses.categories' | translate}}</h2>
+</a>

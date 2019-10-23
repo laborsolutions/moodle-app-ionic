@@ -21,23 +21,3 @@ ion-app.app-root page-addon-mod-lesson-player {
         }
     }
 }
-// ion-row.nav-buttons-2 ion-col {
-//     max-width: 50%;
-// }
-ion-row.nav-buttons-2 ion-col:first-of-type {
-    position: absolute;
-    right: 0;
-}
-ion-row.nav-buttons-2 ion-col:last-of-type {
-    position: absolute;
-    left: 0;
-  max-width: 50%;
-}
-ion-row.nav-buttons-2 {
-    position: relative;
-    height: 55px;
-}
-// ion-row.nav-buttons-2 ion-col:nth-child(1) {
-//     position: absolute;
-//     left: 0;
-// }

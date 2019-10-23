@@ -21,7 +21,7 @@
             </a>
 
             <ion-item text-wrap *ngIf="course.summary" detail-none>
-                <core-format-text [text]="" maxHeight="120"></core-format-text>
+                <core-format-text [text]="course.summary" maxHeight="120"></core-format-text>
             </ion-item>
 
             <ng-container text-wrap *ngIf="course.contacts && course.contacts.length">

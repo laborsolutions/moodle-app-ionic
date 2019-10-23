@@ -12,7 +12,7 @@
             <ion-item text-center>
                 <div class="item-avatar-center">
                     <img class="avatar" [src]="user.profileimageurl" core-external-content alt="{{ 'core.pictureof' | translate:{$a: user.fullname} }}" role="presentation" onError="this.src='assets/img/user-avatar.png'">
-                  <!--   <ion-icon name="create" class="core-icon-foreground" *ngIf="canChangeProfilePicture" (click)="changeProfilePicture()"></ion-icon> -->
+                    <ion-icon name="create" class="core-icon-foreground" *ngIf="canChangeProfilePicture" (click)="changeProfilePicture()"></ion-icon>
                 </div>
                 <h2><core-format-text [text]="user.fullname"></core-format-text></h2>
                 <p><core-format-text *ngIf="user.address" [text]="user.address"></core-format-text></p>
@@ -27,7 +27,7 @@
                     <ion-col align-self-center *ngFor="let comHandler of communicationHandlers" text-center>
                         <a (click)="handlerClicked($event, comHandler)" [ngClass]="['core-user-profile-handler', comHandler.class]" title="{{comHandler.title | translate}}" tappable>
                             <core-icon [name]="comHandler.icon"></core-icon>
-                            <p> {{comHandler.title | translate}}</p>
+                            <p>{{comHandler.title | translate}}</p>
                         </a>
                     </ion-col>
                 </ion-row>

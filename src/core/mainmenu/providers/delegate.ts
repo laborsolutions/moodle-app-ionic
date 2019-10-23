@@ -160,17 +160,13 @@ export class CoreMainMenuDelegate extends CoreDelegate {
             const handler = <CoreMainMenuHandler> this.enabledHandlers[name],
                 data = handler.getDisplayData();
 
-           if(name != 'AddonCalendar'){
-
             handlersData.push({
                 name: name,
                 data: data,
                 priority: handler.priority
             });
         }
-        
-        }
-      
+
         // Sort them by priority.
         handlersData.sort((a, b) => {
             return b.priority - a.priority;

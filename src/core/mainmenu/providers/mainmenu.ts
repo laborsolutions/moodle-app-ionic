@@ -74,7 +74,7 @@ export class CoreMainMenuProvider {
                 // Setting not valid.
                 return result;
             }
-           // alert(itemsString);
+
             // Add items to the map.
             items = itemsString.split(/(?:\r\n|\r|\n)/);
             items.forEach((item) => {

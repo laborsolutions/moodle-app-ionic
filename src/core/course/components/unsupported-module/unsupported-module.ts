@@ -15,8 +15,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CoreCourseProvider } from '../../providers/course';
 import { CoreCourseModuleDelegate } from '../../providers/module-delegate';
-import { CoreSitesProvider } from '@providers/sites';
-import { InAppBrowser,InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 /**
  * Component that displays info about an unsupported module.
@@ -32,48 +30,15 @@ export class CoreCourseUnsupportedModuleComponent implements OnInit {
     isDisabledInSite: boolean;
     isSupportedByTheApp: boolean;
     moduleName: string;
-    siteurlk: any;
-    kl: any;
-    kl2: string;
-    mname: any;
-    options : InAppBrowserOptions = {
-        location : 'no',//Or 'no' 
-        hidden : 'no', //Or  'yes'
-        clearcache : 'yes',
-        clearsessioncache : 'yes',
-        zoom : 'yes',//Android only ,shows browser zoom controls 
-        hardwareback : 'yes',
-        mediaPlaybackRequiresUserAction : 'no',
-        shouldPauseOnSuspend : 'no', //Android only 
-        closebuttoncaption : 'X', //iOS only
-        disallowoverscroll : 'no', //iOS only 
-        toolbar : 'yes', //iOS only 
-        enableViewportScale : 'no', //iOS only 
-        allowInlineMediaPlayback : 'no',//iOS only 
-        presentationstyle : 'pagesheet',//iOS only 
-        fullscreen : 'yes',//Windows only    
-    };
 
-    constructor(private courseProvider: CoreCourseProvider, private moduleDelegate: CoreCourseModuleDelegate,private sp:CoreSitesProvider,private iab: InAppBrowser) {
-        
-     }
+    constructor(private courseProvider: CoreCourseProvider, private moduleDelegate: CoreCourseModuleDelegate) { }
 
     /**
      * Component being initialized.
      */
     ngOnInit(): void {
-        console.log(this.module,'module',this.sp.getCurrentSite());
-        this.kl=this.sp.getCurrentSite();
-        this.kl2=this.kl.siteUrl;
-        this.kl.infos['userid'];
-        this.mname=this.module['modname'];
-
-        
         this.isDisabledInSite = this.moduleDelegate.isModuleDisabledInSite(this.module.modname);
         this.isSupportedByTheApp = this.moduleDelegate.hasHandler(this.module.modname);
         this.moduleName = this.courseProvider.translateModuleName(this.module.modname);
-        if(this.mname=='bigbluebuttonbn'){
-            const browser = this.iab.create(`${this.kl2}/admin/tool/mobile/autologin2.php?userid=${this.kl.infos['userid']}&urltogo=${this.module.url}`,'_blank',this.options);
-        }
     }
 }

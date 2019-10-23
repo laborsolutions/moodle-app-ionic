@@ -149,7 +149,7 @@ export class AddonModLessonHelperProvider {
         if (contents) {
             return contents.innerHTML.trim();
         }
-      //  console.log(data.page.contents);
+
         // Cannot find contents element, return the page.contents (some elements like videos might not work).
         return data.page.contents;
     }

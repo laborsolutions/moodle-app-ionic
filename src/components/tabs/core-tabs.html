@@ -1,47 +1,25 @@
 <core-loading [hideUntil]="hideUntil" class="core-loading-center">
     <div class="core-tabs-bar" #topTabs [hidden]="!tabs || tabs.length < 2">
         <ion-row>
-            <!-- <ion-col class="col-with-arrow" (click)="slidePrev()" no-padding col-1>
+            <ion-col class="col-with-arrow" (click)="slidePrev()" no-padding col-1>
                 <ion-icon *ngIf="showPrevButton" name="arrow-back" md="ios-arrow-back"></ion-icon>
-            </ion-col> -->
+            </ion-col>
             <ion-col no-padding col-10>
                 <ion-slides (ionSlideDidChange)="slideChanged()" [slidesPerView]="slidesShown">
                     <ng-container *ngFor="let tab of tabs; let idx = index">
-                        <ion-slide *ngIf="tab.title !='Site home' && tab.title !='Notes' && tab.title !='Contents' && tab.title !='Courses' && tab.title !='Participants' && tab.title !='Competencies' && tab.title !='Completion'">
+                        <ion-slide *ngIf="tab.show">
                             <a [attr.aria-selected]="selected == idx" (click)="selectTab(idx)" class="tab-slide">
                                 <core-icon *ngIf="tab.icon" [name]="tab.icon"></core-icon>
                                 <span *ngIf="tab.title">{{ tab.title }}</span>
                                 <ion-badge *ngIf="tab.badge" [color]="tab.badgeStyle" class="tab-badge">{{tab.badge}}</ion-badge>
                             </a>
                         </ion-slide>
-                         <ion-slide *ngIf="tab.title =='Contents'">
-                            <a [attr.aria-selected]="selected == idx" (click)="selectTab(idx)" class="tab-slide">
-                                <core-icon *ngIf="tab.icon" [name]="tab.icon"></core-icon>
-                                <span *ngIf="tab.title">Content</span>
-                                <ion-badge *ngIf="tab.badge" [color]="tab.badgeStyle" class="tab-badge">{{tab.badge}}</ion-badge>
-                            </a>
-                        </ion-slide>
-                        <ion-slide *ngIf="tab.title =='Courses'">
-                            <a [attr.aria-selected]="selected == idx" (click)="selectTab(idx)" class="tab-slide">
-                                <core-icon *ngIf="tab.icon" [name]="tab.icon"></core-icon>
-                                <span *ngIf="tab.title">My Courses</span>
-                                <ion-badge *ngIf="tab.badge" [color]="tab.badgeStyle" class="tab-badge">{{tab.badge}}</ion-badge>
-                            </a>
-                        </ion-slide>
-                        <ion-slide *ngIf="tab.title ==='Site home'">
-                            <a [attr.aria-selected]="selected == idx" (click)="openSearch()" class="tab-slide">
-                                <core-icon *ngIf="tab.icon" [name]="tab.icon"></core-icon>
-                                <span *ngIf="tab.title">Search</span>
-                                <ion-badge *ngIf="tab.badge" [color]="tab.badgeStyle" class="tab-badge">{{tab.badge}}</ion-badge>
-                            </a>
-                        </ion-slide>
-
                     </ng-container>
                 </ion-slides>
             </ion-col>
-            <!-- <ion-col class="col-with-arrow" (click)="slideNext()" no-padding col-1>
+            <ion-col class="col-with-arrow" (click)="slideNext()" no-padding col-1>
                 <ion-icon *ngIf="showNextButton" name="arrow-forward" md="ios-arrow-forward"></ion-icon>
-            </ion-col> -->
+            </ion-col>
         </ion-row>
     </div>
     <div class="core-tabs-content-container" #originalTabs>

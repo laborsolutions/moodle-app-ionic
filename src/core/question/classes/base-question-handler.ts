@@ -59,7 +59,6 @@ export class CoreQuestionBaseHandler implements CoreQuestionHandler {
      * @return {string} The behaviour to use.
      */
     getBehaviour(question: any, behaviour: string): string {
-       // console.log(JSON.stringify(behaviour));
         return behaviour;
     }
 
