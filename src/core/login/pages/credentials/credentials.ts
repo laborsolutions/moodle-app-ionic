@@ -71,7 +71,6 @@ export class CoreLoginCredentialsPage {
      * View loaded.
      */
     ionViewDidLoad(): void {
-<<<<<<< HEAD
        // return this.login();
        this.treatSiteConfig();
 
@@ -84,9 +83,6 @@ export class CoreLoginCredentialsPage {
            this.siteChecked = true;
            this.pageLoaded = true;
        }
-=======
-       return this.login();
->>>>>>> b8aa7be1dafe2432a53aa17e2a6e08d359cca273
     }
 
     /**
@@ -181,26 +177,16 @@ export class CoreLoginCredentialsPage {
         this.appProvider.closeKeyboard();
        // const url = window.location.href;
          const siteUrl = this.siteUrl,
-<<<<<<< HEAD
       //   username = this.autologin('username'),
       //   password = this.autologin('password');
-=======
-         username = this.autologin('username'),
-         password = this.autologin('password');
->>>>>>> b8aa7be1dafe2432a53aa17e2a6e08d359cca273
        //   alert(username);
         // Get input data.
 
          // username='johndoe',
         //  password='Smart@123';
         //  this.locationHref = url.substr(0, url.indexOf('#'));
-<<<<<<< HEAD
         username = this.credForm.value.username,
         password = this.credForm.value.password;
-=======
-          //  username = this.credForm.value.username,
-          //  password = this.credForm.value.password;
->>>>>>> b8aa7be1dafe2432a53aa17e2a6e08d359cca273
 
         // if (!this.siteChecked || this.isBrowserSSO) {
             // Site wasn't checked (it failed) or a previous check determined it was SSO. Let's check again.

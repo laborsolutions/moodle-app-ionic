@@ -1,14 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.wovo.wovolearning" version="3.5.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-<<<<<<< HEAD
     <name>WOVO E-Learning</name>
     <description>Wovo learning app</description>
     <author email="mobile@moodle.com" href="http://moodle.com">Wovo learning team</author>
-=======
-    <name>Moodle</name>
-    <description>Moodle official app</description>
-    <author email="mobile@moodle.com" href="http://moodle.com">Moodle Mobile team</author>
->>>>>>> b8aa7be1dafe2432a53aa17e2a6e08d359cca273
     <content src="index.html" />
     <access origin="*" />
     <access launch-external="yes" origin="tel:*" />
@@ -134,12 +128,7 @@
         <variable name="ANDROID_SUPPORT_VERSION" value="27.1.0" />
     </plugin>
     <plugin name="cordova-plugin-globalization" spec="^1.11.0" />
-<<<<<<< HEAD
     <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="7.1.4" />
-=======
-    <engine name="android" spec="7.0.0" />
-    <engine name="ios" spec="4.5.4" />
->>>>>>> b8aa7be1dafe2432a53aa17e2a6e08d359cca273
     <engine name="browser" spec="5.0.4" />
 </widget>

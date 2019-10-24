@@ -389,15 +389,13 @@ export class FileMock extends File {
                     }
                 });
             } else {
-                reject('Error creating base path.');
                 // It's browser, request a quota to use. Request 500MB.
-                // (<any> navigator).webkitPersistentStorage.requestQuota(1, (granted) => {
-                //    // alert()
-                //     window.requestFileSystem(LocalFileSystem.PERSISTENT, granted, (entry) => {
-                //         basePath = entry.root.toURL();
-                //         resolve(basePath);
-                //     }, reject);
-                // }, reject);
+                (<any> navigator).webkitPersistentStorage.requestQuota(500 * 1024 * 1024, (granted) => {
+                    window.requestFileSystem(LocalFileSystem.PERSISTENT, granted, (entry) => {
+                        basePath = entry.root.toURL();
+                        resolve(basePath);
+                    }, reject);
+                }, reject);
             }
 
         });

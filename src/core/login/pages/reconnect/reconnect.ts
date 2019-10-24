@@ -66,13 +66,6 @@ export class CoreLoginReconnectPage {
     /**
      * View loaded.
      */
-     protected autologin(field){
-     var href =  window.location.href;
-     var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
-     var string = reg.exec(href);
-     return string ? string[1] : null
-
-     }
     ionViewDidLoad(): void {
         if (this.siteConfig) {
             this.identityProviders = this.loginHelper.getValidIdentityProviders(this.siteConfig);
@@ -123,10 +116,9 @@ export class CoreLoginReconnectPage {
 
         // Get input data.
         const siteUrl = this.siteUrl,
-            // username = this.username,
-            // password = this.credForm.value.password;
-            username = this.autologin('username'),
-            password = this.autologin('password');
+            username = this.username,
+            password = this.credForm.value.password;
+
         if (!password) {
             this.domUtils.showErrorModal('core.login.passwordrequired', true);
 

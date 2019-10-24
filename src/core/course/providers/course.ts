@@ -205,23 +205,9 @@ export class CoreCourseProvider {
      public removeHrefLink(course)
   {
            if(course['summary']){
-<<<<<<< HEAD
             var summary= course['summary'];
            var reg = summary.replace(/<\/?a[^>]*>/g, "");
              course['summary']=reg;
-=======
-             var summary= course['summary'];
-            var reg = summary.replace(/<\/?a[^>]*>/g, "");
-            reg= reg.replace(/<span> /g, "");
-            reg= reg.replace(/ <\/span>/g, "");
-            reg= reg.replace(/<span>/g, "");
-            reg= reg.replace(/<\/span>/g, "");
-            reg= reg.replace(/<\/?a[^>]*>/g, "");
-            reg= reg.replace(/<p>/g, "");
-            reg= reg.replace(/<\/p>/g, "");
-            reg= reg.replace(/,\s+/g, ",");
-              course['summary']=reg;
->>>>>>> b8aa7be1dafe2432a53aa17e2a6e08d359cca273
            }
 
               return course;

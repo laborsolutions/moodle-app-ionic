@@ -614,7 +614,6 @@ export class CoreSitesProvider {
 
         return true;
     }
-    
 
     /**
      * Saves a site in local DB.

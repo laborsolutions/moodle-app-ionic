@@ -77,16 +77,11 @@
     "@types/node": "^8.0.47",
     "@types/promise.prototype.finally": "^2.0.2",
     "chart.js": "^2.7.2",
-<<<<<<< HEAD
     "com-darryncampbell-cordova-plugin-intent": "^1.1.2",
     "cordova-android": "7.1.4",
     "cordova-android-support-gradle-release": "^1.4.7",
     "cordova-browser": "5.0.4",
     "cordova-clipboard": "^1.2.1",
-=======
-    "cordova-android": "7.0.0",
-    "cordova-browser": "5.0.4",
->>>>>>> b8aa7be1dafe2432a53aa17e2a6e08d359cca273
     "cordova-ios": "4.5.4",
     "cordova-plugin-app-event": "^1.2.1",
     "cordova-plugin-badge": "^0.8.8",
@@ -146,7 +141,6 @@
     "platforms": [
       "ios",
       "android",
-<<<<<<< HEAD
       "browser"
     ],
     "plugins": {
@@ -192,11 +186,6 @@
         "ANDROID_SUPPORT_VERSION": "27.1.0"
       }
     }
-=======
-      "ios",
-      "browser"
-    ]
->>>>>>> b8aa7be1dafe2432a53aa17e2a6e08d359cca273
   },
   "main": "desktop/electron.js",
   "build": {
