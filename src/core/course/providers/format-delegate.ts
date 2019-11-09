@@ -255,9 +255,17 @@ export class CoreCourseFormatDelegate extends CoreDelegate {
       public removeHrefLink(course)
     {
              if(course['summary']){
-              var summary= course['summary'];
-             var reg = summary.replace(/<\/?a[^>]*>/g, "");
-               course['summary']=reg;
+               var summary= course['summary'];
+              var reg = summary.replace(/<\/?a[^>]*>/g, "");
+              reg= reg.replace(/<span> /g, "");
+              reg= reg.replace(/ <\/span>/g, "");
+              reg= reg.replace(/<span>/g, "");
+              reg= reg.replace(/<\/span>/g, "");
+              reg= reg.replace(/<\/?a[^>]*>/g, "");
+              reg= reg.replace(/<p>/g, "");
+              reg= reg.replace(/<\/p>/g, "");
+              reg= reg.replace(/,\s+/g, ",");
+                course['summary']=reg;
              }
 
                 return course;

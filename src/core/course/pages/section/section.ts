@@ -70,7 +70,6 @@ export class CoreCourseSectionPage implements OnDestroy {
             private textUtils: CoreTextUtilsProvider, private coursesProvider: CoreCoursesProvider,
             sitesProvider: CoreSitesProvider, private navCtrl: NavController, private injector: Injector,
             private prefetchDelegate: CoreCourseModulePrefetchDelegate) {
-      //   alert(navParams.get('sectionId'));
         this.course = navParams.get('course');
         this.sectionId = -1;
         this.sectionNumber = navParams.get('sectionNumber');
@@ -147,7 +146,16 @@ export class CoreCourseSectionPage implements OnDestroy {
              if(course['summary']){
               var summary= course['summary'];
              var reg = summary.replace(/<\/?a[^>]*>/g, "");
+             reg= reg.replace(/<span> /g, "");
+             reg= reg.replace(/ <\/span>/g, "");
+             reg= reg.replace(/<span>/g, "");
+             reg= reg.replace(/<\/span>/g, "");
+             reg= reg.replace(/<\/?a[^>]*>/g, "");
+             reg= reg.replace(/<p>/g, "");
+             reg= reg.replace(/<\/p>/g, "");
+             reg= reg.replace(/,\s+/g, ",");
                course['summary']=reg;
+
              }
 
                 return course;
