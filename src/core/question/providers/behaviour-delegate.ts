@@ -80,6 +80,7 @@ export class CoreQuestionBehaviourDelegate extends CoreDelegate {
      */
     determineNewState(behaviour: string, component: string, attemptId: number, question: any, siteId?: string)
             : Promise<CoreQuestionState> {
+                console.log(JSON.stringify(question));
         behaviour = this.questionDelegate.getBehaviourForQuestion(question, behaviour);
 
         return Promise.resolve(this.executeFunctionOnEnabled(behaviour, 'determineNewState',

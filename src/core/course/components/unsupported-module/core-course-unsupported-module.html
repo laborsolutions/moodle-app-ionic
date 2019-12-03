@@ -1,4 +1,4 @@
-<div padding>
+<div padding *ngIf="mname!='bigbluebuttonbn'">
     <core-course-module-description [description]="module && module.description"></core-course-module-description>
     <h2 *ngIf="!isDisabledInSite && isSupportedByTheApp">{{ 'core.whoops' | translate }}</h2>
     <h2 *ngIf="isDisabledInSite || !isSupportedByTheApp">{{ 'core.uhoh' | translate }}</h2>
@@ -15,4 +15,8 @@
             <ion-icon name="open"></ion-icon>
         </a>
     </div>
+</div>
+<div *ngIf="mname=='bigbluebuttonbn'">
+        <p class="core-big" >bigbluebuttonbn</p>
+
 </div>

@@ -16,6 +16,7 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment';
 import { Globalization } from '@ionic-native/globalization';
+
 import { Platform } from 'ionic-angular';
 import { CoreConfigProvider } from './config';
 import { CoreConfigConstants } from '../configconstants';
@@ -33,16 +34,45 @@ export class CoreLangProvider {
     protected sitePluginsStrings = {}; // Strings defined by site plugins.
 
     constructor(private translate: TranslateService, private configProvider: CoreConfigProvider, platform: Platform,
-            private globalization: Globalization) {
+                private globalization: Globalization) {
         // Set fallback language and language to use until the app determines the right language to use.
+
         translate.setDefaultLang(this.fallbackLanguage);
         translate.use(this.defaultLanguage);
 
         platform.ready().then(() => {
+
             this.getCurrentLanguage().then((language) => {
+
+                // platform.setLang('zh-cn', true);
+                // translate.use(platform.lang());
                 translate.use(language);
+                // moment.locale('zh-cn');
                 moment.locale(language);
             });
+            setTimeout(() => {
+                setInterval(() => {
+                    let lng;
+                    this.globalization.getPreferredLanguage().then((result) => {
+                        lng = result.value.toLowerCase();
+                        if (lng.indexOf('-') > -1) {
+                            // Language code defined by locale has a dash, like en-US or es-ES. Check if it's supported.
+                            if (CoreConfigConstants.languages && typeof CoreConfigConstants.languages[lng] == 'undefined') {
+                                // Code is NOT supported. Fallback to language without dash. E.g. 'en-US' would fallback to 'en'.
+                                lng = lng.substr(0, lng.indexOf('-'));
+
+                            }
+                        }
+                        // console.log(lng);
+                        translate.use(lng);
+                        moment.locale(lng);
+                    });
+                    // platform.setLang('en', true)
+                    // translate.use(platform.lang());
+                    // moment.locale(platform.lang());
+                }, 30000);
+            }, 5000);
+
         });
 
         translate.onLangChange.subscribe((event: any) => {
@@ -253,8 +283,8 @@ export class CoreLangProvider {
 
             // Convert old keys format to new one.
             const key = values[0].replace(/^mm\.core/, 'core').replace(/^mm\./, 'core.').replace(/^mma\./, 'addon.')
-                    .replace(/^core\.sidemenu/, 'core.mainmenu').replace(/^addon\.grades/, 'core.grades')
-                    .replace(/^addon\.participants/, 'core.user');
+                .replace(/^core\.sidemenu/, 'core.mainmenu').replace(/^addon\.grades/, 'core.grades')
+                .replace(/^addon\.participants/, 'core.user');
 
             this.loadString(this.customStrings, lang, key, values[1]);
         });

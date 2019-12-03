@@ -98,7 +98,7 @@
                 <a ion-item (click)="changePage(question.page, false, question.slot)" *ngIf="question.number" [attr.aria-label]="'core.question.questionno' | translate:{$a: question.number}" [attr.detail-push]="!quiz.isSequential && canReturn ? true : null">
                     <ion-row align-items-center>
                         <ion-col col-3 text-center>{{ question.number }}</ion-col>
-                        <ion-col col-9 text-center>{{ question.status }}</ion-col>
+                        <ion-col col-9 text-center>{{ question.status | translate }}</ion-col>
                     </ion-row>
                 </a>
             </ng-container>

@@ -1,0 +1,22 @@
+{
+    "complete": "បញ្ចប់",
+    "completecourse": "បញ្ចប់វគ្គសិក្សា",
+    "completed": "បានបញ្ចប់",
+    "completiondate": "កាលបរិច្ឆេទបញ្ចប់",
+    "completionmenuitem": "ការបញ្ចប់",
+    "couldnotloadreport": "មិនអាចផ្ទុករបាយការណ៍បញ្ចប់វគ្គសិក្សាទេ។ សូម​ព្យាយាម​ម្តង​ទៀត​នៅ​ពេល​ក្រោយ។",
+    "coursecompletion": "ការបញ្ចប់វគ្គសិក្សា",
+    "criteria": "លក្ខណៈវិនិច្ឆ័យ",
+    "criteriagroup": "ក្រុមលក្ខណៈវិនិច្ឆ័យ",
+    "criteriarequiredall": "លក្ខណៈវិនិច្ឆ័យទាំងអស់ខាងក្រោមត្រូវបានទាមទារ។",
+    "criteriarequiredany": "លក្ខណៈវិនិច្ឆ័យខាងក្រោមត្រូវបានទាមទារ។",
+    "inprogress": "កំពុង​ដំណើរការ",
+    "manualselfcompletion": "ការបញ្ចប់ដោយខ្លួនឯងដោយដៃ",
+    "notyetstarted": "មិនទាន់ចាប់ផ្តើមទេ",
+    "pending": "រង់ចាំ",
+    "required": "ចាំបាច់",
+    "requiredcriteria": "លក្ខណៈវិនិច្ឆ័យដែលត្រូវការ",
+    "requirement": "តម្រូវការ",
+    "status": "ស្ថានភាព",
+    "viewcoursereport": "មើលរបាយការណ៍វគ្គសិក្សា"
+}

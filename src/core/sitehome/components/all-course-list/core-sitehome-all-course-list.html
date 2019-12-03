@@ -1,4 +1,12 @@
-<a *ngIf="show" ion-item text-wrap [navPush]="'CoreCoursesAvailableCoursesPage'">
-    <core-icon name="fa-graduation-cap" fixed-width item-start></core-icon>
-    <h2>{{ 'core.courses.availablecourses' | translate}}</h2>
-</a>
+
+<ion-card>
+        <a *ngIf="show" ion-item text-wrap [navPush]="'CoreCoursesAvailableCoursesPage'">
+               <img src="assets/search.png" />
+        <ion-card-content>
+         <p>{{ 'core.courses.availablecourses' | translate}}</p>
+                
+            
+         
+        </ion-card-content>
+    </a>
+      </ion-card>

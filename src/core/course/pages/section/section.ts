@@ -70,8 +70,9 @@ export class CoreCourseSectionPage implements OnDestroy {
             private textUtils: CoreTextUtilsProvider, private coursesProvider: CoreCoursesProvider,
             sitesProvider: CoreSitesProvider, private navCtrl: NavController, private injector: Injector,
             private prefetchDelegate: CoreCourseModulePrefetchDelegate) {
+      //   alert(navParams.get('sectionId'));
         this.course = navParams.get('course');
-        this.sectionId = navParams.get('sectionId');
+        this.sectionId = -1;
         this.sectionNumber = navParams.get('sectionNumber');
         this.module = navParams.get('module');
 
@@ -141,7 +142,16 @@ export class CoreCourseSectionPage implements OnDestroy {
             });
         });
     }
+       public removeHrefLink(course)
+    {
+             if(course['summary']){
+              var summary= course['summary'];
+             var reg = summary.replace(/<\/?a[^>]*>/g, "");
+               course['summary']=reg;
+             }
 
+                return course;
+    }
     /**
      * Fetch and load all the data required for the view.
      */
@@ -154,7 +164,7 @@ export class CoreCourseSectionPage implements OnDestroy {
             let promise;
 
             if (course) {
-                this.course = course;
+                this.course = this.removeHrefLink(course);
             }
 
             // Get the completion status.
@@ -194,9 +204,9 @@ export class CoreCourseSectionPage implements OnDestroy {
 
                         return section;
                     });
-
-                    if (this.courseFormatDelegate.canViewAllSections(this.course)) {
-                        // Add a fake first section (all sections).
+                     //alert(JSON.stringify(this.removeHrefLink(this.course))));
+                    if (this.courseFormatDelegate.canViewAllSections( this.removeHrefLink(this.course))) {
+                       // Add a fake first section (all sections)
                         this.sections.unshift({
                             name: this.translate.instant('core.course.allsections'),
                             id: CoreCourseProvider.ALL_SECTIONS_ID,

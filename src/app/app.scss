@@ -692,6 +692,9 @@ ion-app.app-root {
     max-height: $core-toolbar-button-image-width - 1;
     border-radius: 50%;
   }
+  .toolbar-title-md{
+  text-align:center;
+  }
 
   // Footer with auto height.
   .footer.footer-adjustable {
@@ -968,4 +971,27 @@ ion-modal,
 .modal-wrapper,
 .split-pane {
   contain: size layout style;
+}
+ion-app.app-root .item core-format-text h5 b{
+font-size: 1.8rem !important;
+}
+.ion-md-cloud-download{
+  display:none !important;
+}
+ion-app.app-root core-format-text h5
+{
+font-size: 1.25rem !important;
+}
+ion-app.app-root core-format-text h5 *
+{
+font-size: 1.25rem !important;
+}
+ion-app.app-root .item core-format-text h5 b a{
+font-size: 1.7rem !important;
+}
+ion-app.app-root .item core-format-text h5 b{
+font-size: 1.7rem !important;
+}
+ion-app.app-root .item core-format-text li a{
+color: #3a3a3a !important;
 }

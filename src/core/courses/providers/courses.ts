@@ -88,12 +88,15 @@ export class CoreCoursesProvider {
      * @return {Promise}            Promise resolved with the list of course IDs.
      */
     protected getCourseIdsForAdminAndNavOptions(courseIds: number[], siteId?: string): Promise<number[]> {
+
         return this.sitesProvider.getSite(siteId).then((site) => {
+
             const siteHomeId = site.getSiteHomeId();
 
             if (courseIds.length == 1) {
                 // Only 1 course, check if it belongs to the user courses. If so, use all user courses.
                 return this.getUserCourses(true, siteId).then((courses) => {
+
                     const courseId = courseIds[0];
                     let useAllCourses = false;
 
@@ -669,7 +672,10 @@ export class CoreCoursesProvider {
                     omitExpires: !!preferCache
                 };
 
-            return site.read('core_enrol_get_users_courses', data, preSets);
+               return site.read('core_enrol_get_users_courses', data, preSets);
+
+
+
         });
     }
 

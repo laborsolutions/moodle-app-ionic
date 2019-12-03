@@ -30,6 +30,7 @@ export class CoreCourseSectionSelectorPage {
     selected: number;
 
     constructor(navParams: NavParams, courseHelper: CoreCourseHelperProvider, private viewCtrl: ViewController) {
+  //  alert(JSON.stringify(navParams.get('selected')));
         this.sections = navParams.get('sections');
         this.selected = navParams.get('selected');
     }
@@ -47,6 +48,7 @@ export class CoreCourseSectionSelectorPage {
      * @param {any} section Selected section object.
      */
     selectSection(section: any): void {
+  
         if (section.uservisible !== false) {
             this.viewCtrl.dismiss(section);
         }

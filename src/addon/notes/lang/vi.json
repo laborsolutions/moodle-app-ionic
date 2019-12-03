@@ -1,0 +1,13 @@
+{
+    "addnewnote": "Thêm một ghi chú mới",
+    "coursenotes": "Ghi chú khóa học",
+    "eventnotecreated": "Ghi chú đã tạo",
+    "nonotes": "Không có ghi chú của loại này chưa.",
+    "note": "Ghi chú",
+    "notes": "Ghi chú",
+    "personalnotes": "Ghi chú cá nhân",
+    "publishstate": "Bối cảnh",
+    "sitenotes": "Ghi chú trang web",
+    "userwithid": "Người dùng có ID {{id}}",
+    "warningnotenotsent": "Không thể thêm ghi chú vào khóa học {{course}}. {{error}}"
+}

@@ -61,7 +61,6 @@ export class CoreQuestionComponent implements OnInit {
      */
     ngOnInit(): void {
         this.offlineEnabled = this.utils.isTrueOrOne(this.offlineEnabled);
-
         if (!this.question) {
             this.loaded = true;
 

@@ -1,0 +1,20 @@
+{
+    "calendar": "Kalender",
+    "calendarevents": "acara kalender",
+    "defaultnotificationtime": "Waktu pemberitahuan default",
+    "errorloadevent": "Galat saat memuat acara.",
+    "errorloadevents": "Kesalahan memuat acara.",
+    "eventendtime": "Akhir waktu",
+    "eventstarttime": "Waktu mulai",
+    "noevents": "Tidak ada acara",
+    "notifications": "Notifikasi",
+    "typeclose": "Tutup acara",
+    "typecourse": "Acara kursus",
+    "typecategory": "Kategori acara",
+    "typedue": "Karena acara",
+    "typegradingdue": "Perincian acara karena",
+    "typegroup": "Acara kelompok",
+    "typeopen": "Buka acara",
+    "typesite": "Acara situs",
+    "typeuser": "Acara pengguna"
+}

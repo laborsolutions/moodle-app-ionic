@@ -71,15 +71,18 @@ export class CoreLoginCredentialsPage {
      * View loaded.
      */
     ionViewDidLoad(): void {
-        this.treatSiteConfig();
+       // return this.login();
+       this.treatSiteConfig();
 
-        if (this.loginHelper.isFixedUrlSet()) {
-            // Fixed URL, we need to check if it uses browser SSO login.
-            this.checkSite(this.siteUrl);
-        } else {
-            this.siteChecked = true;
-            this.pageLoaded = true;
-        }
+       if (this.loginHelper.isFixedUrlSet()) {
+           // Fixed URL, we need to check if it uses browser SSO login.
+           //this.checkSite(this.siteUrl);
+           this.siteChecked = true;
+           this.pageLoaded = true;
+       } else {
+           this.siteChecked = true;
+           this.pageLoaded = true;
+       }
     }
 
     /**
@@ -103,7 +106,7 @@ export class CoreLoginCredentialsPage {
         // If the site is configured with http:// protocol we force that one, otherwise we use default mode.
         const protocol = siteUrl.indexOf('http://') === 0 ? 'http://' : undefined;
 
-        return this.sitesProvider.checkSite(siteUrl, protocol).then((result) => {
+        return this.sitesProvider.checkSite(siteUrl, 'http://').then((result) => {
 
             this.siteChecked = true;
             this.siteUrl = result.siteUrl;
@@ -139,6 +142,7 @@ export class CoreLoginCredentialsPage {
      * Treat the site configuration (if it exists).
      */
     protected treatSiteConfig(): void {
+        alert(JSON.stringify(this.siteConfig))
         if (this.siteConfig) {
             this.siteName = this.siteConfig.sitename;
             this.logoUrl = this.siteConfig.logourl || this.siteConfig.compactlogourl;
@@ -158,29 +162,43 @@ export class CoreLoginCredentialsPage {
             this.identityProviders = [];
         }
     }
+    protected autologin(field){
+    var href =  window.location.href;
+    var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+    var string = reg.exec(href);
+    return string ? string[1] : null
+
+    }
 
     /**
      * Tries to authenticate the user.
      */
     login(): void {
         this.appProvider.closeKeyboard();
-
+       // const url = window.location.href;
+         const siteUrl = this.siteUrl,
+      //   username = this.autologin('username'),
+      //   password = this.autologin('password');
+       //   alert(username);
         // Get input data.
-        const siteUrl = this.siteUrl,
-            username = this.credForm.value.username,
-            password = this.credForm.value.password;
 
-        if (!this.siteChecked || this.isBrowserSSO) {
+         // username='johndoe',
+        //  password='Smart@123';
+        //  this.locationHref = url.substr(0, url.indexOf('#'));
+        username = this.credForm.value.username,
+        password = this.credForm.value.password;
+
+        // if (!this.siteChecked || this.isBrowserSSO) {
             // Site wasn't checked (it failed) or a previous check determined it was SSO. Let's check again.
-            this.checkSite(siteUrl).then(() => {
-                if (!this.isBrowserSSO) {
-                    // Site doesn't use browser SSO, throw app's login again.
-                    return this.login();
-                }
-            });
+            // this.checkSite(siteUrl).then(() => {
+            //     if (!this.isBrowserSSO) {
+            //         // Site doesn't use browser SSO, throw app's login again.
+            //         return this.login();
+            //     }
+            // });
 
-            return;
-        }
+          //  return;
+        // }
 
         if (!username) {
             this.domUtils.showErrorModal('core.login.usernamerequired', true);
@@ -203,6 +221,7 @@ export class CoreLoginCredentialsPage {
 
         // Start the authentication process.
         this.sitesProvider.getUserToken(siteUrl, username, password).then((data) => {
+
             return this.sitesProvider.newSite(data.siteUrl, data.token, data.privateToken).then((id) => {
                 // Reset fields so the data is not in the view anymore.
                 this.credForm.controls['username'].reset();
@@ -231,6 +250,7 @@ export class CoreLoginCredentialsPage {
             modal.dismiss();
         });
     }
+
 
     /**
      * Forgotten password button clicked.

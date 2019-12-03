@@ -17,7 +17,7 @@ import {
     SimpleChange
 } from '@angular/core';
 import { CoreTabComponent } from './tab';
-import { Content, Slides } from 'ionic-angular';
+import { Content, Slides, NavController } from 'ionic-angular';
 import { CoreDomUtilsProvider } from '@providers/utils/dom';
 
 /**
@@ -73,7 +73,7 @@ export class CoreTabsComponent implements OnInit, AfterViewInit, OnChanges, OnDe
     protected shouldSlideToInitial = false; // Whether we need to slide to the initial slide because it's out of view.
     protected hasSliddenToInitial = false; // Whether we've already slidden to the initial slide or there was no need.
 
-    constructor(element: ElementRef, protected content: Content, protected domUtils: CoreDomUtilsProvider) {
+    constructor(element: ElementRef, private navCtrl: NavController, protected content: Content, protected domUtils: CoreDomUtilsProvider) {
         this.tabBarElement = element.nativeElement;
     }
 
@@ -273,6 +273,12 @@ export class CoreTabsComponent implements OnInit, AfterViewInit, OnChanges, OnDe
             this.shouldSlideToInitial = false;
         }
     }
+    /**
+     * Go to search courses.
+     */
+    openSearch(): void {
+        this.navCtrl.push('CoreCoursesSearchPage');
+    }
 
     /**
      * Update slides.
@@ -444,4 +450,6 @@ export class CoreTabsComponent implements OnInit, AfterViewInit, OnChanges, OnDe
             window.removeEventListener('resize', this.resizeFunction);
         }
     }
+
+
 }

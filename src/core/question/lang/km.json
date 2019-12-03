@@ -1,0 +1,22 @@
+{
+    "answer": "ចម្លើយ",
+    "answersaved": "ចម្លើយត្រូវបានរក្សាទុក",
+    "certainty": "ច្បាស់",
+    "complete": "បញ្ចប់",
+    "correct": "ត្រឹមត្រូវ",
+    "errorattachmentsnotsupported": "ពាក្យសុំមិនគាំទ្រការភ្ជាប់ឯកសារទៅនឹងចម្លើយនៅឡើយទេ។",
+    "errorinlinefilesnotsupported": "កម្មវិធីមិនគាំទ្រការកែសម្រួលឯកសារក្នុងតួនៅឡើយទេ។",
+    "errorquestionnotsupported": "ប្រភេទសំណួរនេះមិនត្រូវបានគាំទ្រដោយកម្មវិធីទេ: {{$a}}.",
+    "feedback": "មតិប្រតិកម្ម",
+    "howtodraganddrop": "ប៉ះដើម្បីជ្រើសបន្ទាប់មកប៉ះដើម្បីទម្លាក់។",
+    "incorrect": "មិន​ត្រឹមត្រូវ",
+    "information": "ព័ត៌មាន",
+    "invalidanswer": "ចម្លើយមិនពេញលេញ",
+    "notanswered": "មិនឆ្លើយ",
+    "notyetanswered": "មិនទាន់ឆ្លើយ",
+    "partiallycorrect": "ផ្នែកខ្លះត្រឹមត្រូវ",
+    "questionmessage": "សំណួរ {{$a}}: {{$b}}",
+    "questionno": "សំណួរ {{$a}}",
+    "requiresgrading": "តម្រូវឱ្យមានចំណាត់ថ្នាក់",
+    "unknown": "មិនអាចកំណត់ស្ថានភាពបានទេ"
+}

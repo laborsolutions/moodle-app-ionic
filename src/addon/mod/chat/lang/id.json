@@ -1,0 +1,19 @@
+{
+    "beep": "Berbunyi",
+    "currentusers": "Pengguna saat ini",
+    "enterchat": "Klik di sini untuk masuk ke obrolan sekarang",
+    "entermessage": "Masukkan pesan Anda",
+    "errorwhileconnecting": "Kesalahan saat menyambung ke obrolan.",
+    "errorwhilegettingchatdata": "Kesalahan saat mendapatkan data obrolan.",
+    "errorwhilegettingchatusers": "Kesalahan saat mendapatkan pengguna obrolan.",
+    "errorwhileretrievingmessages": "Kesalahan saat mengambil pesan dari server.",
+    "errorwhilesendingmessage": "Kesalahan saat mengirim pesan.",
+    "messagebeepsyou": "{{$a}} baru saja berbunyi bip kamu!",
+    "messageenter": "{{$a}} baru saja memasuki obrolan ini",
+    "messageexit": "{{$a}} telah meninggalkan obrolan ini",
+    "mustbeonlinetosendmessages": "Anda harus online untuk mengirim pesan.",
+    "nomessages": "Belum ada pesan",
+    "send": "Kirim",
+    "sessionstart": "Sesi obrolan berikutnya akan dimulai {{$a.date}}, ({{$a.fromnow}} mulai sekarang)",
+    "talk": "Berbicara"
+}

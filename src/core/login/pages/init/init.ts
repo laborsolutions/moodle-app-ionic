@@ -81,6 +81,7 @@ export class CoreLoginInitPage {
      * @return {Promise<any>} Promise resolved when done.
      */
     protected loadPage(): Promise<any> {
+
         if (this.sitesProvider.isLoggedIn()) {
             if (!this.loginHelper.isSiteLoggedOut()) {
                 // User is logged in, go to site initial page.
@@ -96,6 +97,7 @@ export class CoreLoginInitPage {
                 if (hasSites) {
                     return this.navCtrl.setRoot('CoreLoginSitesPage');
                 } else {
+
                     return this.loginHelper.goToAddSite(true);
                 }
             });

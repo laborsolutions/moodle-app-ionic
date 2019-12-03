@@ -4,3 +4,7 @@ ion-app.app-root core-context-menu-popover {
         @include margin-horizontal(5px, null);
     }
 }
+
+a[aria-label="Open in browser"] {
+  display:none !important;
+}
