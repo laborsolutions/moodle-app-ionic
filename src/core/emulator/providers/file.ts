@@ -28,7 +28,7 @@ import { FileEntryMock, DirectoryEntryMock } from '../classes/filesystem';
 export class FileMock extends File {
 
     constructor(private appProvider: CoreAppProvider, private textUtils: CoreTextUtilsProvider,
-            private mimeUtils: CoreMimetypeUtilsProvider) {
+        private mimeUtils: CoreMimetypeUtilsProvider) {
         super();
     }
 
@@ -295,20 +295,20 @@ export class FileMock extends File {
                 let iterations = 0,
                     maxIterations = 50;
                 const calculateByRequest = (size: number, ratio: number): Promise<any> => {
-                        return new Promise((resolve, reject): void => {
-                            window.requestFileSystem(LocalFileSystem.PERSISTENT, size, () => {
-                                iterations++;
-                                if (iterations > maxIterations) {
-                                    resolve(size);
+                    return new Promise((resolve, reject): void => {
+                        window.requestFileSystem(LocalFileSystem.PERSISTENT, size, () => {
+                            iterations++;
+                            if (iterations > maxIterations) {
+                                resolve(size);
 
-                                    return;
-                                }
-                                calculateByRequest(size * ratio, ratio).then(resolve);
-                            }, () => {
-                                resolve(size / ratio);
-                            });
+                                return;
+                            }
+                            calculateByRequest(size * ratio, ratio).then(resolve);
+                        }, () => {
+                            resolve(size / ratio);
                         });
-                    };
+                    });
+                };
 
                 // General calculation, base 1MB and increasing factor 1.3.
                 calculateByRequest(1048576, 1.3).then((size: number) => {
@@ -350,7 +350,7 @@ export class FileMock extends File {
      */
     load(): Promise<any> {
         return new Promise((resolve, reject): void => {
-            const win = <any> window; // Convert to <any> to be able to use non-standard properties.
+            const win = <any>window; // Convert to <any> to be able to use non-standard properties.
             let basePath;
 
             if (typeof win.requestFileSystem == 'undefined') {
@@ -391,13 +391,12 @@ export class FileMock extends File {
             } else {
                 reject('Error creating base path.');
                 // It's browser, request a quota to use. Request 500MB.
-                // (<any> navigator).webkitPersistentStorage.requestQuota(1, (granted) => {
-                //    // alert()
-                //     window.requestFileSystem(LocalFileSystem.PERSISTENT, granted, (entry) => {
-                //         basePath = entry.root.toURL();
-                //         resolve(basePath);
-                //     }, reject);
-                // }, reject);
+                (<any>navigator).webkitPersistentStorage.requestQuota(5 * 1024 * 1024, (granted) => {
+                    window.requestFileSystem(LocalFileSystem.PERSISTENT, granted, (entry) => {
+                        basePath = entry.root.toURL();
+                        resolve(basePath);
+                    }, reject);
+                }, reject);
             }
 
         });
@@ -544,7 +543,7 @@ export class FileMock extends File {
             return new Promise<T>((resolve, reject): void => {
                 reader.onloadend = (): void => {
                     if (reader.result !== undefined || reader.result !== null) {
-                        resolve(<T> <any> reader.result);
+                        resolve(<T><any>reader.result);
                     } else if (reader.error !== undefined || reader.error !== null) {
                         reject(reader.error);
                     } else {
@@ -631,7 +630,7 @@ export class FileMock extends File {
     resolveDirectoryUrl(directoryUrl: string): Promise<DirectoryEntry> {
         return this.resolveLocalFilesystemUrl(directoryUrl).then((de) => {
             if (de.isDirectory) {
-                return <DirectoryEntry> de;
+                return <DirectoryEntry>de;
             } else {
                 const err = new FileError(13);
                 err.message = 'input is not a directory';

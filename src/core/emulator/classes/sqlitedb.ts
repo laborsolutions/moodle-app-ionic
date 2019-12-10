@@ -149,7 +149,7 @@ export class SQLiteDBMock extends SQLiteDB {
      */
     init(): void {
         // This DB is for desktop apps, so use a big size to be sure it isn't filled.
-        this.db = (<any> window).openDatabase(this.name, '1.0', this.name, 500 * 1024 * 1024);
+        this.db = (<any>window).openDatabase(this.name, '1.0', this.name, 5 * 1024 * 1024);
         this.promise = Promise.resolve();
     }
 
