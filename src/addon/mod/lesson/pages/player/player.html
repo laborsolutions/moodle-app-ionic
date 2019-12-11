@@ -71,7 +71,7 @@
                             <div *ngIf="!question.multi" radio-group [formControlName]="question.controlName">
                                 <ion-item text-wrap *ngFor="let option of question.options">
                                     <ion-label>
-                                        <core-format-text [component]="component" [componentId]="lesson.coursemodule" [text]="option.text"></core-format-text>
+                                        <core-format-text [component]="component" [componentId]="lesson.coursemodule" [text]="option.text | translate"></core-format-text>
                                     </ion-label>
                                     <ion-radio [id]="option.id" [value]="option.value" [disabled]="option.disabled"></ion-radio>
                                 </ion-item>
@@ -108,7 +108,7 @@
                     </ng-container>
 
                     <ion-item>
-                        <button ion-button block (click)="submitQuestion()" class="button-no-uppercase">{{ question.submitLabel }}</button>
+                        <button ion-button block (click)="submitQuestion()" class="button-no-uppercase">{{ question.submitLabel}}</button>
                     </ion-item>
                 </form>
             </ion-card>

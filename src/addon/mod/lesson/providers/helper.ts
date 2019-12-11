@@ -176,7 +176,7 @@ export class AddonModLessonHelperProvider {
 
         // Get the submit button and extract its value.
         const submitButton = <HTMLInputElement> element.querySelector('input[type="submit"]');
-        question.submitLabel = submitButton ? submitButton.value : this.translate.instant('addon.mod_lesson.submit');
+        question.submitLabel = submitButton ? this.translate.instant('addon.mod_lesson.submit') : this.translate.instant('addon.mod_lesson.submit');
 
         if (!fieldContainer) {
             // Element not found, return.

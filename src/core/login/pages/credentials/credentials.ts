@@ -142,7 +142,7 @@ export class CoreLoginCredentialsPage {
      * Treat the site configuration (if it exists).
      */
     protected treatSiteConfig(): void {
-        alert(JSON.stringify(this.siteConfig))
+        //alert(JSON.stringify(this.siteConfig))
         if (this.siteConfig) {
             this.siteName = this.siteConfig.sitename;
             this.logoUrl = this.siteConfig.logourl || this.siteConfig.compactlogourl;
