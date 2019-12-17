@@ -123,5 +123,7 @@
     "viewprofile": "查看个人资料",
     "year": "年",
     "years": "年",
-    "yes": "是"
+    "yes": "是",
+    "true":"真正",
+    "false":"假"
 }

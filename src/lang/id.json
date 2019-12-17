@@ -246,5 +246,7 @@
     "wsfunctionnotavailable": "Fungsi layanan web tidak tersedia.",
     "year" : "tahun",
     "years": "tahun",
-    "yes": "Iya"
+    "yes": "Iya",
+    "true":"Benar",
+    "false":"Salah"
 }

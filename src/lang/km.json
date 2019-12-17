@@ -246,5 +246,7 @@
     "wsfunctionnotavailable": "មុខងារ webservice មិនមានទេ។",
     "year" : "ឆ្នាំ",
     "years": "ឆ្នាំ",
-    "yes": "ត្រូវហើយ"
+    "yes": "ត្រូវហើយ",
+    "true":"ពិត",
+    "false":"មិនពិត"
 }

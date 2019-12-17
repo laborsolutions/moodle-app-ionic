@@ -438,6 +438,7 @@ export class AddonModLessonPlayerPage implements OnInit, OnDestroy {
                 });
             }
         }).then(() => {
+            console.log("message- ", this.messages);
             return this.loadPage(this.currentPage);
         });
     }

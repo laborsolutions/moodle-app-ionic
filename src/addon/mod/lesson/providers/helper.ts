@@ -115,17 +115,38 @@ export class AddonModLessonHelperProvider {
                 // Button not found or no inputs, ignore it.
                 return;
             }
+            // if(buttonEl.title && buttonEl.title == 'Next'){
+            //     buttonEl.title = "Next1";
+            // }
+            // if(buttonEl.value && buttonEl.value == 'Next'){
+            //     buttonEl.title = "Next1";
+            // }
+            // if(buttonEl.title && buttonEl.title == 'Back'){
+            //     buttonEl.title = "Back1";
+            // }
+            // if(buttonEl.value && buttonEl.value == 'Back'){
+            //     buttonEl.title = "Back1";
+            // }
+            var buttoncontent = buttonEl.tagName == 'INPUT' ? buttonEl.value : buttonEl.innerHTML.trim();
+            if(buttoncontent == 'Next'){
+                buttoncontent = this.translate.instant('core.next');
+            }
+            if(buttoncontent == 'Back'){
+                buttoncontent = this.translate.instant('core.back');
+            }
 
             const button = {
                 id: buttonEl.id,
                 title: buttonEl.title || buttonEl.value,
-                content: buttonEl.tagName == 'INPUT' ? buttonEl.value : buttonEl.innerHTML.trim(),
+                content: buttoncontent,
                 data: {}
             };
 
             inputs.forEach((input) => {
                 if (input.type != 'submit') {
                     button.data[input.name] = input.value;
+                } else {
+
                 }
             });
 
@@ -203,7 +224,7 @@ export class AddonModLessonHelperProvider {
                         return question;
                     }
                 }
-
+ 
                 let controlAdded = false;
                 inputs.forEach((input) => {
                     const option: any = {
@@ -225,7 +246,13 @@ export class AddonModLessonHelperProvider {
                     // Remove the input and use the rest of the parent contents as the label.
                     input.remove();
                     option.text = parent.innerHTML.trim();
-
+                    if(option.text == "True"){
+                        option.text = this.translate.instant('core.true');
+                    }
+                    if(option.text == "False"){
+                        option.text = this.translate.instant('core.false');
+                    }
+                    console.log("option.text- ", option.text);
                     question.options.push(option);
                 });
 
