@@ -8,7 +8,7 @@
     "confirmdownload": "Anda akan mengunduh {{size}}. Apakah anda yakin ingin melanjutkan?",
     "confirmdownloadunknownsize": "Tidak mungkin untuk menghitung ukuran unduhan. Apakah anda yakin ingin melanjutkan?",
     "confirmpartialdownloadsize": "Anda akan mengunduh <strong> setidaknya </strong> {{size}}. Apakah anda yakin ingin melanjutkan?",
-    "contents": "Contents",
+    "contents": "Konten",
     "couldnotloadsectioncontent": "Tidak dapat memuat konten bagian. Silakan coba lagi nanti.",
     "couldnotloadsections": "Tidak dapat memuat konten bagian. Silakan coba lagi nanti.",
     "coursesummary": "Ringkasan kursus",
