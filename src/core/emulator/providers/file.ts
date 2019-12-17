@@ -389,14 +389,19 @@ export class FileMock extends File {
                     }
                 });
             } else {
+                const _iOSDevice = !!navigator.platform.match(/iPhone|iPod|iPad/);
                 reject('Error creating base path.');
-                // It's browser, request a quota to use. Request 500MB.
-                (<any>navigator).webkitPersistentStorage.requestQuota(5 * 1024 * 1024, (granted) => {
-                    window.requestFileSystem(LocalFileSystem.PERSISTENT, granted, (entry) => {
-                        basePath = entry.root.toURL();
-                        resolve(basePath);
+                if (_iOSDevice) {
+                    (<any>navigator).webkitPersistentStorage.requestQuota(5 * 1024 * 1024, (granted) => {
+                        window.requestFileSystem(LocalFileSystem.PERSISTENT, granted, (entry) => {
+                            basePath = entry.root.toURL();
+                            resolve(basePath);
+                        }, reject);
                     }, reject);
-                }, reject);
+                }
+
+                // It's browser, request a quota to use. Request 500MB.
+
             }
 
         });
