@@ -155,7 +155,7 @@
     "networkerrormsg": "Có một vấn đề kết nối với trang web. Vui lòng kiểm tra kết nối của bạn và thử lại.",
     "never": "Không bao giờ",
     "next": "Kế tiếp",
-    "no": "No",
+    "no": "Không",
     "nocomments": "Miễn bình luận",
     "none": "không ai",
     "nopasswordchangeforced": "Bạn không thể tiến hành mà không thay đổi mật khẩu của bạn.",
@@ -246,5 +246,7 @@
     "wsfunctionnotavailable": "Chức năng dịch vụ web không có sẵn.",
     "year" : "năm",
     "years": "năm",
-    "yes": "Đúng"
+    "yes": "Đúng",
+    "true":"thật",
+    "false":"sai"
 }

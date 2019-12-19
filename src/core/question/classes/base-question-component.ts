@@ -15,6 +15,7 @@
 import { Input, Output, EventEmitter, Injector } from '@angular/core';
 import { CoreLoggerProvider } from '@providers/logger';
 import { CoreDomUtilsProvider } from '@providers/utils/dom';
+import { TranslateService } from '@ngx-translate/core';
 import { CoreTextUtilsProvider } from '@providers/utils/text';
 import { CoreQuestionHelperProvider } from '@core/question/providers/helper';
 
@@ -34,6 +35,7 @@ export class CoreQuestionBaseComponent {
     protected questionHelper: CoreQuestionHelperProvider;
     protected domUtils: CoreDomUtilsProvider;
     protected textUtils: CoreTextUtilsProvider;
+    private translate: TranslateService;
 
     constructor(logger: CoreLoggerProvider, logName: string, protected injector: Injector) {
         this.logger = logger.getInstance(logName);
@@ -42,6 +44,7 @@ export class CoreQuestionBaseComponent {
         this.questionHelper = injector.get(CoreQuestionHelperProvider);
         this.domUtils = injector.get(CoreDomUtilsProvider);
         this.textUtils = injector.get(CoreTextUtilsProvider);
+        this.translate = injector.get(TranslateService);
     }
 
     /**
@@ -467,6 +470,12 @@ export class CoreQuestionBaseComponent {
                                     option.feedback = feedback.innerHTML;
                                 }
                             }
+                        }
+                        if (option.text == "True") {
+                            option.text = this.translate.instant('core.true');
+                        }
+                        if (option.text == "False") {
+                            option.text = this.translate.instant('core.false');
                         }
 
                         this.question.options.push(option);

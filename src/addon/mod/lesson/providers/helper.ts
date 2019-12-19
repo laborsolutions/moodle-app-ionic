@@ -115,11 +115,18 @@ export class AddonModLessonHelperProvider {
                 // Button not found or no inputs, ignore it.
                 return;
             }
+            var buttoncontent = buttonEl.tagName == 'INPUT' ? buttonEl.value : buttonEl.innerHTML.trim();
+            if(buttoncontent == 'Next'){
+                buttoncontent = this.translate.instant('core.next');
+            }
+            if(buttoncontent == 'Back'){
+                buttoncontent = this.translate.instant('core.back');
+            }
 
             const button = {
                 id: buttonEl.id,
                 title: buttonEl.title || buttonEl.value,
-                content: buttonEl.tagName == 'INPUT' ? buttonEl.value : buttonEl.innerHTML.trim(),
+                content: buttoncontent,
                 data: {}
             };
 
@@ -176,7 +183,7 @@ export class AddonModLessonHelperProvider {
 
         // Get the submit button and extract its value.
         const submitButton = <HTMLInputElement> element.querySelector('input[type="submit"]');
-        question.submitLabel = submitButton ? submitButton.value : this.translate.instant('addon.mod_lesson.submit');
+        question.submitLabel = submitButton ? this.translate.instant('addon.mod_lesson.submit') : this.translate.instant('addon.mod_lesson.submit');
 
         if (!fieldContainer) {
             // Element not found, return.
@@ -225,6 +232,12 @@ export class AddonModLessonHelperProvider {
                     // Remove the input and use the rest of the parent contents as the label.
                     input.remove();
                     option.text = parent.innerHTML.trim();
+                    if(option.text == "True"){
+                        option.text = this.translate.instant('core.true');
+                    }
+                    if(option.text == "False"){
+                        option.text = this.translate.instant('core.false');
+                    }
 
                     question.options.push(option);
                 });
