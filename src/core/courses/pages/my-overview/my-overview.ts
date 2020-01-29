@@ -119,7 +119,8 @@ export class CoreCoursesMyOverviewPage implements OnDestroy {
                 displaySiteHome = site.getInfo() && site.getInfo().userhomepage === 0;
 
             this.siteHomeEnabled = enabled;
-            this.firstSelectedTab = displaySiteHome ? 0 : 1;
+            //this.firstSelectedTab = displaySiteHome ? 0 : 1;
+            this.firstSelectedTab = 0;
             this.tabsReady = true;
         });
     }
