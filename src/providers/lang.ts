@@ -50,7 +50,7 @@ export class CoreLangProvider {
                 // moment.locale('zh-cn');
                 moment.locale(language);
             });
-            setTimeout(() => {
+            /* setTimeout(() => {
                 setInterval(() => {
                     let lng;
                     this.globalization.getPreferredLanguage().then((result) => {
@@ -71,7 +71,7 @@ export class CoreLangProvider {
                     // translate.use(platform.lang());
                     // moment.locale(platform.lang());
                 }, 30000);
-            }, 5000);
+            }, 5000); */
 
         });
 
