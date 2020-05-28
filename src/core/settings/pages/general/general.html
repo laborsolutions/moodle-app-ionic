@@ -10,7 +10,7 @@
             <ion-option *ngFor="let code of languageCodes" [value]="code">{{ languages[code] }}</ion-option>
         </ion-select>
     </ion-item>
-    <ion-item text-wrap *ngIf="rteSupported">
+    <!-- <ion-item text-wrap *ngIf="rteSupported">
         <ion-label>
             <h2>{{ 'core.settings.enablerichtexteditor' | translate }}</h2>
             <p>{{ 'core.settings.enablerichtexteditordescription' | translate }}</p>
@@ -20,5 +20,5 @@
     <ion-item text-wrap *ngIf="showReport">
         <ion-label><h2>{{ 'core.settings.reportinbackground' | translate }}</h2></ion-label>
         <ion-toggle [(ngModel)]="reportInBackground" (ngModelChange)="reportInBackgroundChanged()"></ion-toggle>
-    </ion-item>
+    </ion-item> -->
 </ion-content>
